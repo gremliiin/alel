@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+.main section + section{
+    padding: 100px 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.simple_title{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #2B2A29;
+    margin-bottom: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.slider_btn{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.slider_btn::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("./common/images/fi_chevron-right.svg") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
 
-.App-link {
-  color: #61dafb;
+.slider_btn.next{
+    right: -10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.slider_btn.prev{
+    left: -46px;
+}
+
+.prev.two{
+    left: -15px;
+}
+
+.next.two{
+    right: -70px;
+}
+
+.slider_btn.prev{
+    transform: translate(-50%, -50%) rotate(-180deg);
+}
+
+.heart_card{
+    fill: #27AE60;
+}
+
+.heart_card path{
+    stroke: #27AE60;
+}
+
+button.slider_btn.prev.three{
+    left: -16px;
+}
+
+button.slider_btn.next.three{
+    right: -70px;
+}
+
+@media (max-width: 1125px) {
+    .slider_btn{
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .main{
+        padding-top: 4rem;
+    }
+}
+
+@media(max-width: 550px){
+    .simple_title{
+
+    }
 }

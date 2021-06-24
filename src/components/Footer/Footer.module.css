@@ -1,0 +1,155 @@
+.footer {
+    padding: 120px 0;
+}
+
+.footer_top {
+    padding-bottom: 50px;
+    border-bottom: 1px solid #D8D8D8;;
+}
+
+.footer_logo {
+    max-height: 65px;
+    max-width: 82px;
+}
+
+.footer_menu_title,
+.footer_payment_title,
+.footer_contacts_title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    color: #2B2A29;
+}
+
+.footer_menu_nav {
+    display: flex;
+    margin-top: 20px;
+}
+
+.footer_list + .footer_list {
+    margin-left: 30px;
+}
+
+.footer_item + .footer_item {
+    margin-top: 15px;
+}
+
+.footer_item a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2B2A29;
+}
+
+.footer_payment_cards {
+    margin-top: 20px;
+}
+
+.footer_payment_list {
+    display: flex;
+}
+
+.footer_payment_link {
+    display: block;
+    max-width: 65px;
+    max-height: 45px;
+}
+
+.footer_payment_item + .footer_payment_item {
+    margin-left: 30px;
+}
+
+.footer_contacts_contact {
+    margin-top: 20px;
+}
+
+.footer_contacts_contact a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2B2A29;
+}
+
+.footer_contacts_socials {
+    display: flex;
+    margin-top: 20px;
+}
+
+.footer_contacts_socials a {
+    display: block;
+}
+
+.footer_contacts_socials a + a {
+    margin-left: 25px;
+}
+
+.footer_bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 28px;
+}
+
+.footer_bottom a {
+    display: block;
+    padding-left: 31px;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #27AE60;
+}
+
+.before {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    left: 0;
+    top: -5px;
+}
+
+.footer_bottom_info {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #808080;
+}
+
+@media (max-width: 992px) {
+
+
+    .footer_menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 80px;
+    }
+
+
+    .footer_payment,
+    .footer_contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .footer_bottom {
+        flex-direction: column-reverse;
+    }
+
+    .footer_bottom span {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer_menu,
+    .footer_payment,
+    .footer_contacts {
+        display: block;
+    }
+}

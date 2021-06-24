@@ -1,0 +1,73 @@
+.section_cards{
+    padding-top: 50px;
+}
+
+.section_dark{
+    background-color: #F7F8F9;
+}
+
+.choice_cards{
+    display: none;
+
+}
+
+.section_cards_recipe{
+    position: relative;
+}
+
+.section_img_left,
+.section_img_right{
+    position: absolute;
+    display: block;
+    object-fit: cover;
+}
+
+.section_img_left{
+    left: 0;
+    bottom: -225px;
+}
+
+.section_img_right{
+    right: 0;
+    bottom: -225px;
+}
+
+.about_company_section{
+    position: relative;
+}
+
+.about_company_section .section_img_left{
+    left: 0;
+    bottom: -436px;
+}
+
+.about_company_section .section_img_right{
+    right: 0;
+    bottom: -407px;
+}
+
+@media(max-width: 1300px){
+    .section_img_left,
+    .section_img_right{
+        display: none;
+    }
+}
+
+@media(max-width: 550px){
+    .choice_slider{
+        display: none;
+    }
+
+    .choice_cards{
+      display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+    }
+}
+
+@media(max-width: 460px){
+    .choice_cards{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}

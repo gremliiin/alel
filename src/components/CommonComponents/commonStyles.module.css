@@ -1,0 +1,528 @@
+.banner{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.banner_image_img{
+    position: absolute;
+    display: block;
+    object-fit: cover;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.banner_content{
+    position: relative;
+    z-index: 0;
+    padding: 150px 0;
+}
+
+.banner_mini_title{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #27AE60;
+}
+
+.banner_title{
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
+    color: #2B2A29;
+    margin-top: 10px;
+}
+
+.banner_text{
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2B2A29;
+}
+
+.banner_image_left,
+.banner_image_right{
+    position: absolute;
+    display: block;
+}
+
+.banner_image_right{
+    right: 0;
+    bottom: -300px;
+}
+
+.banner_image_left{
+    left: 0;
+    bottom: -400px;
+}
+
+.banner_btn{
+    display: block;
+    margin-top: 20px;
+    padding: 12px;
+    max-width: 255px;
+    background-color: #27AE60;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.CardTypeOne{
+    display: flex;
+    align-items: center;
+    background-color: #F8F4F3;
+}
+
+.CardTypeOne{
+    margin-right: 60px;
+}
+
+.CardTypeOne_image{
+    max-width: 350px;
+    max-height: 280px;
+    position: relative;
+}
+
+.CardTypeOne_image_desc{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    padding: 5px 7px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    background-color: #FF1818;
+    border-radius: 15px;
+}
+
+.CardTypeOne_image_img{
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 35%;
+    border-bottom-right-radius: 35%;
+}
+
+.CardTypeOne_content{
+    padding-left: 16px;
+    max-width: 160px;
+}
+
+.CardTypeOne_title{
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 34px;
+    color: #2B2A29;
+}
+
+.CardTypeOne_text{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2B2A29;
+    margin-top: 15px;
+}
+
+.CardTypeOne_text_price{
+    margin-top: 9px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.CardTypeOne_text_price_old{
+    margin-right: 7px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-decoration-line: line-through;
+    color: #2B2A29;
+}
+
+.CardTypeOne_text_price_new{
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 34px;
+    color: #27AE60;
+}
+
+.CardTypeTwo{
+    display: block;
+    margin-left: 30px;
+    background-color: #fff;
+}
+
+.CardTypeTwo_images{
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.CardTypeTwo_images_img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.CardTypeTwo_content{
+    padding: 15px;
+}
+
+.CardTypeTwo_content_title{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2B2A29;
+}
+
+.CardTypeTwo_content_status{
+    margin-top: 7px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #27AE60;
+}
+
+.CardTypeTwo_content_btns{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 30px;
+    background-color: #E5F7E9;
+    border-radius: 15px;
+}
+
+.CardTypeTwo_content_btn{
+    display: block;
+    background-color: inherit;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2B2A29;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.CardTypeTwo_content_btn:hover{
+    transition: 300ms;
+    color: #27AE60;
+}
+
+.CardTypeTwo_content_btn.active{
+    color: #27AE60;
+}
+
+.CardTypeTwo_content_addBasket{
+    margin-top: 21px;
+    border: none;
+    background-color: #27AE60;
+    border-radius: 22px;
+    padding: 12px 30px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    width: 100%;
+}
+.CardTypeTwo_images_status{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 4px 7px;
+    border-radius: 12px;
+    background-color: #27AE60;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+@media(max-width: 992px){
+    .banner_image_left,
+    .banner_image_right{
+        position: absolute;
+        display: none;
+    }
+
+    .banner_content{
+        max-width: 280px;
+    }
+
+    .banner_title{
+        font-size: 35px;
+        line-height: 40px;
+    }
+
+    .CardTypeOne_image_desc{
+        top: 10px;
+        left: 10px;
+        font-size:12px;
+        padding: 3px 5px;
+    }
+
+    .CardTypeOne_title{
+        font-size: 22px;
+        line-height: 24px;
+    }
+
+    .CardTypeOne_text{
+        margin-top: 5px;
+
+    }
+
+    .CardTypeOne_text_price{
+        margin-top: 0;
+    }
+
+    .CardTypeOne_text_price_old{
+        font-size: 16px;
+    }
+
+    .CardTypeOne_text_price_new{
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+.CardTypeTwo_images_like{
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    top: 15px;
+    right: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.CardTypeTwo_images_like_img{
+    display: block;
+    position: absolute;
+    content: "";
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+
+.block_location button .before {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 19px;
+    height: 19px;
+    right: 0;
+    top: 0;
+}
+
+.CardTypeThree{
+    display: block;
+    max-width: 350px;
+    min-width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+
+.CardTypeThree_image{
+    max-width: 350px;
+    max-height: 210px;
+}
+
+.CardTypeThree_image_img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.CardTypeThree_content{
+    padding: 15px;
+}
+
+.CardTypeThree_content_title{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #2B2A29;
+}
+
+.CardTypeThree_info{
+    display: flex;
+}
+
+.CardTypeThree_info_text{
+    margin-top: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 31px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #808080;
+}
+
+.CardTypeThree_info_text + .CardTypeThree_info_text{
+    margin-left: 15px;
+}
+
+.CardTypeThree_info_text .before {
+    position: absolute;
+    left: 0;
+    top: -4px;
+}
+
+.section_cards_recipe{
+    position: relative;
+}
+
+.about_company_image{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.about_company_image_img{
+    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.about_company_text_block + .about_company_text_block{
+    margin-top: 30px;
+}
+
+.about_company_title{
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
+    color: #27AE60;
+}
+
+.about_company_text{
+    display: block;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2B2A29;
+}
+
+.about_company_text span{
+    display: block;
+    margin-top: 10px;
+}
+
+.card{
+    padding: 25px;
+    background-color: #fff;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.card_image{
+    width: 40px;
+    height: 40px;
+}
+
+.card_image_img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card_title{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #2B2A29;
+}
+
+.card_text{
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2B2A29;
+}
+
+@media(max-width: 992px){
+    .about_company_text_block{
+        margin-top: 30px;
+    }
+}
+
+@media(max-width: 767px){
+    .CardTypeOne{
+        display: block;
+    }
+
+    .CardTypeOne_content{
+        display: block;
+        margin-top: 10px;
+        padding-left: 0;
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .CardTypeThree_content_title,
+    .CardTypeThree_info_text{
+        font-size: 14px;
+    }
+
+    .CardTypeThree{
+        margin-left: 0;
+    }
+}
+
+@media(max-width: 550px){
+    .CardTypeTwo{
+        max-width: 261px;
+        margin: 0;
+    }
+
+    .CardTypeTwo_images_status{
+        font-size: 12px;
+    }
+
+    .CardTypeTwo_content_title{
+        font-size: 14px;
+    }
+
+    .CardTypeTwo_content_status{
+        font-size: 12px;
+    }
+
+    .CardTypeTwo_content_btn{
+        font-size: 14px;
+    }
+
+    .CardTypeTwo_content_addBasket{
+        font-size: 12px;
+        padding: 12px 10px;
+    }
+}
