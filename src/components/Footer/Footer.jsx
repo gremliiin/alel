@@ -14,7 +14,7 @@ const Footer = () => {
             <Row>
               <Col lg={2}>
                 <div className={s.footer_logo}>
-                  <img className={s.footer_logo_img} src="/images/logo.png" alt="logo"/>
+                  <img className={s.footer_logo_img} src={document.location.href + "/images/logo.png"} alt="logo"/>
                 </div>
               </Col>
               <Col lg={4}>
@@ -49,13 +49,13 @@ const Footer = () => {
                     <ul className={s.footer_payment_list}>
                       <li className={s.footer_payment_item}><a href="#"
                                                                className={s.footer_payment_link}><img
-                          src="/images/master_card.png" alt="payment" className={s.footer_payment_img}/></a></li>
+                          src={document.location.href + "/images/master_card.png"} alt="payment" className={s.footer_payment_img}/></a></li>
                       <li className={s.footer_payment_item}><a href="#"
                                                                className={s.footer_payment_link}><img
-                          src="/images/visa.png" alt="payment" className={s.footer_payment_img}/></a></li>
+                          src={document.location.href + "/images/visa.png"} alt="payment" className={s.footer_payment_img}/></a></li>
                       <li className={s.footer_payment_item}><a href="#"
                                                                className={s.footer_payment_link}><img
-                          src="/images/amex.png" alt="payment" className={s.footer_payment_img}/></a></li>
+                          src={document.location.href + "/images/amex.png"} alt="payment" className={s.footer_payment_img}/></a></li>
                     </ul>
                   </div>
                 </div>
@@ -68,11 +68,11 @@ const Footer = () => {
                   </div>
                   <div className={s.footer_contacts_socials}>
 
-                    <a href="#"><img src="/images/facebook_footer.svg" alt="social-item"
+                    <a href="#"><img src={document.location.href + "/images/facebook_footer.svg"} alt="social-item"
                                      className={s.footer_contacts_social}/></a>
-                    <a href="#"><img src="/images/instagram_footer.svg" alt="social-item"
+                    <a href="#"><img src={document.location.href + "/images/instagram_footer.svg"} alt="social-item"
                                      className={s.footer_contacts_social}/></a>
-                    <a href="#"><img src="/images/youtube_footer.svg" alt="social-item"
+                    <a href="#"><img src={document.location.href + "/images/youtube_footer.svg"} alt="social-item"
                                      className={s.footer_contacts_social}/></a>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ const Footer = () => {
           <div className={s.footer_bottom}>
             <span className={s.footer_bottom_info}>www.alelagro.kz © 1998-2021. Все права защищены</span>
             <NavLink to={"/contacts"}>Связаться с оператором
-              <div className={s.before}><img className={s.conacts_icon} src="/images/fi_headphones.svg" alt=""/></div>
+              <div className={s.before}><img className={s.conacts_icon} src={document.location.href + "/images/fi_headphones.svg"} alt=""/></div>
             </NavLink>
           </div>
         </Container>

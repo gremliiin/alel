@@ -57,15 +57,15 @@ class Main extends React.Component {
               <h2 className="simple_title">Рецепты недели.</h2>
               <CardTypeThreeSlider />
             </Container>
-            <img src="/images/section-image-1.png" className={s.section_img_left}/>
-            <img src="/images/section-image-2.png" className={s.section_img_right}/>
+            <img src={document.location.href + "/images/section-image-1.png"} className={s.section_img_left}/>
+            <img src={document.location.href + "/images/section-image-2.png"} className={s.section_img_right}/>
           </section>
 
           <section className={s.about_company_section}>
             <Container>
               <AboutCompany />
-              <img src="/images/section-image-3.png" className={s.section_img_left}/>
-              <img src="/images/section-image-4.png" className={s.section_img_right}/>
+              <img src={document.location.href + "/images/section-image-3.png"} className={s.section_img_left}/>
+              <img src={document.location.href + "/images/section-image-4.png"} className={s.section_img_right}/>
             </Container>
           </section>
 

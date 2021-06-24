@@ -9,9 +9,9 @@ import Col from "react-bootstrap/Col";
 const Banner = () => {
   return (
       <div className={s.banner}>
-        <img src="/images/banner.png" alt="banner-image" className={s.banner_image_img}/>
-        <img src="/images/banner-image-left.png" alt="banner-image-left" className={s.banner_image_left}/>
-        <img src="/images/banner-image-right.png" alt="banner-image-right" className={s.banner_image_right}/>
+        <img src={document.location.href + "/images/banner.png"} alt="banner-image" className={s.banner_image_img}/>
+        <img src={document.location.href + "/images/banner-image-left.png"} alt="banner-image-left" className={s.banner_image_left}/>
+        <img src={document.location.href + "/images/banner-image-right.png"} alt="banner-image-right" className={s.banner_image_right}/>
         <Container>
           <Row>
             <Col lg={4}>

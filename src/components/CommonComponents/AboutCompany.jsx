@@ -21,7 +21,7 @@ const AboutCompany = () => {
           <Row>
             <Col lg={5}>
               <div className={s.about_company_image}>
-                <img src="/images/about-company-img-1.png" alt="aboutcompany" className={s.about_company_image_img}/>
+                <img src={document.location.href + "/images/about-company-img-1.png"} alt="aboutcompany" className={s.about_company_image_img}/>
               </div>
             </Col>
             <Col lg={7}>

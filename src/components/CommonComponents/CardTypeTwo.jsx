@@ -15,7 +15,7 @@ const CardTypeTwo = () => {
   return (
       <div className={s.CardTypeTwo}>
         <div className={s.CardTypeTwo_images}>
-          <img src="images/product-1.png" alt="product-1" className={s.CardTypeTwo_images_img}/>
+          <img src={document.location.href + "images/product-1.png"} alt="product-1" className={s.CardTypeTwo_images_img}/>
           <span className={s.CardTypeTwo_images_status}>Новинка</span>
           <span className={s.CardTypeTwo_images_like} onClick={() => {
             setIslike(!isLike);
