@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/alel/static/css/main.4795ff37.chunk.css",
-    "main.js": "/alel/static/js/main.2ef67a19.chunk.js",
-    "main.js.map": "/alel/static/js/main.2ef67a19.chunk.js.map",
+    "main.js": "/alel/static/js/main.16794645.chunk.js",
+    "main.js.map": "/alel/static/js/main.16794645.chunk.js.map",
     "runtime-main.js": "/alel/static/js/runtime-main.31f1656c.js",
     "runtime-main.js.map": "/alel/static/js/runtime-main.31f1656c.js.map",
     "static/css/2.0a09274c.chunk.css": "/alel/static/css/2.0a09274c.chunk.css",
@@ -15,15 +15,41 @@
     "static/css/main.4795ff37.chunk.css.map": "/alel/static/css/main.4795ff37.chunk.css.map",
     "static/js/2.e1e3fbe1.chunk.js.LICENSE.txt": "/alel/static/js/2.e1e3fbe1.chunk.js.LICENSE.txt",
     "static/media/stylesheet.css": "/alel/static/media/ZonaPro-UltraItalic.f6d7bdad.ttf",
+    "static/media/about-company-img-1.fada60f0.png": "/alel/static/media/about-company-img-1.fada60f0.png",
+    "static/media/arrow-down.4f5ce53d.svg": "/alel/static/media/arrow-down.4f5ce53d.svg",
+    "static/media/banner-image-left.b5a2a585.png": "/alel/static/media/banner-image-left.b5a2a585.png",
+    "static/media/banner-image-right.8df97996.png": "/alel/static/media/banner-image-right.8df97996.png",
+    "static/media/banner.e1997fc3.png": "/alel/static/media/banner.e1997fc3.png",
+    "static/media/basket-cart.e5af7ea4.svg": "/alel/static/media/basket-cart.e5af7ea4.svg",
+    "static/media/black-arrow.80a81cdc.svg": "/alel/static/media/black-arrow.80a81cdc.svg",
+    "static/media/chicken-meat-1.ede4935a.png": "/alel/static/media/chicken-meat-1.ede4935a.png",
+    "static/media/chicken-meat-2.9988981c.png": "/alel/static/media/chicken-meat-2.9988981c.png",
+    "static/media/facebook_footer.b5e507c4.svg": "/alel/static/media/facebook_footer.b5e507c4.svg",
     "static/media/App.css": "/alel/static/media/fi_chevron-right.447e9963.svg",
+    "static/media/fi_headphones.2697c1d1.svg": "/alel/static/media/fi_headphones.2697c1d1.svg",
+    "static/media/fi_heart.a76846ea.svg": "/alel/static/media/fi_heart.a76846ea.svg",
+    "static/media/fi_search.8daeec25.svg": "/alel/static/media/fi_search.8daeec25.svg",
     "static/media/heart-card.8f05cccd.svg": "/alel/static/media/heart-card.8f05cccd.svg",
-    "static/media/slick-theme.css": "/alel/static/media/slick.c94f7671.ttf"
+    "static/media/instagram_footer.89387153.svg": "/alel/static/media/instagram_footer.89387153.svg",
+    "static/media/logo.51f60f2d.png": "/alel/static/media/logo.51f60f2d.png",
+    "static/media/product-1.75d48090.png": "/alel/static/media/product-1.75d48090.png",
+    "static/media/protection.d83e2de2.svg": "/alel/static/media/protection.d83e2de2.svg",
+    "static/media/recipe-1.c4629f57.png": "/alel/static/media/recipe-1.c4629f57.png",
+    "static/media/section-image-1.65b5fcf7.png": "/alel/static/media/section-image-1.65b5fcf7.png",
+    "static/media/section-image-2.b1d0d1d8.png": "/alel/static/media/section-image-2.b1d0d1d8.png",
+    "static/media/section-image-3.8a27cdce.png": "/alel/static/media/section-image-3.8a27cdce.png",
+    "static/media/section-image-4.0d3b0f8c.png": "/alel/static/media/section-image-4.0d3b0f8c.png",
+    "static/media/slick-theme.css": "/alel/static/media/slick.c94f7671.ttf",
+    "static/media/u_clock.ab27a5ee.svg": "/alel/static/media/u_clock.ab27a5ee.svg",
+    "static/media/u_fire.43efca1c.svg": "/alel/static/media/u_fire.43efca1c.svg",
+    "static/media/whatsapp.9b3b992b.svg": "/alel/static/media/whatsapp.9b3b992b.svg",
+    "static/media/youtube_footer.53fc7c9b.svg": "/alel/static/media/youtube_footer.53fc7c9b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.31f1656c.js",
     "static/css/2.0a09274c.chunk.css",
     "static/js/2.e1e3fbe1.chunk.js",
     "static/css/main.4795ff37.chunk.css",
-    "static/js/main.2ef67a19.chunk.js"
+    "static/js/main.16794645.chunk.js"
   ]
 }
