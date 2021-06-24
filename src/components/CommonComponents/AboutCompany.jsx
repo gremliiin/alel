@@ -13,6 +13,8 @@ import CardTypeOne from "../CommonComponents/CardTypeOne";
 import CardTypeTwo from "../CommonComponents/CardTypeTwo";
 import CardTypeThree from "../CommonComponents/CardTypeThree";
 
+import about_company_1 from './../../common/images/about-company-img-1.png';
+
 const AboutCompany = () => {
   return (
       <div className={s.about_company}>
@@ -21,7 +23,7 @@ const AboutCompany = () => {
           <Row>
             <Col lg={5}>
               <div className={s.about_company_image}>
-                <img src={document.location.href + "/images/about-company-img-1.png"} alt="aboutcompany" className={s.about_company_image_img}/>
+                <img src={about_company_1} alt="aboutcompany" className={s.about_company_image_img}/>
               </div>
             </Col>
             <Col lg={7}>

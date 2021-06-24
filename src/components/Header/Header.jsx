@@ -8,6 +8,20 @@ import {NavLink} from "react-router-dom";
 import DropdownModal from "./DropdownModal";
 import Burger from 'react-css-burger';
 
+import logo from './../../common/images/logo.png';
+import search_icon from  './../../common/images/fi_search.svg';
+import arrow_down from './../../common/images/arrow-down.svg';
+import whatsapp from './../../common/images/whatsapp.svg';
+import fi_heart from './../../common/images/fi_heart.svg';
+import basket_cart from './../../common/images/basket-cart.svg';
+import fi_menu from './../../common/images/fi_menu.png';
+import black_arrow from './../../common/images/black-arrow.svg';
+import logo_adaptive from './../../common/images/logo-adaptive.png';
+
+
+
+
+
 
 const Header = () => {
 
@@ -92,7 +106,7 @@ const Header = () => {
 
               <Col lg={2} style={{padding: 0}}>
                 <NavLink to={"/"} className={s.logo}>
-                  <img className={s.logo_img} src={document.location.href + "/images/logo.png"} alt="logo"/>
+                  <img className={s.logo_img} src={logo} alt="logo"/>
                 </NavLink>
               </Col>
 
@@ -104,7 +118,7 @@ const Header = () => {
 
                       <li className={`${s.nav_item} ${s.fi_search}`}>
                         <input placeholder={"Что ищите?"} type="text" className={s.search}/>
-                        <img className={s.fi_search_img} src={document.location.href + "/images/fi_search.svg"} alt="search"/>
+                        <img className={s.fi_search_img} src={search_icon} alt="search"/>
                       </li>
 
                       <li className={s.nav_item}>
@@ -115,7 +129,7 @@ const Header = () => {
                               <button onClick={toggleDropdownCities}>
                                 {localState.stateCities.currentCity}
                                 <span className={s.before}>
-                                  <img className={s.fi_search_img} src={document.location.href + "/images/arrow-down.svg"} alt="arrow"/>
+                                  <img className={s.fi_search_img} src={arrow_down} alt="arrow"/>
                                 </span>
                               </button>
                               <div style={localState.stateCities.isCitiesDropdown ?
@@ -145,7 +159,7 @@ const Header = () => {
                           <div className={s.block_contact}>
                             <a href="tel:+77272254360">+7 (727)225 43 60</a>
                             <span className={s.before}>
-                              <img className={s.fi_search_img} src={document.location.href + "/images/whatsapp.svg"} alt="whatsapp"/>
+                              <img className={s.fi_search_img} src={whatsapp} alt="whatsapp"/>
                             </span>
                           </div>
 
@@ -156,7 +170,7 @@ const Header = () => {
                         <div className={`${s.li_block} ${s.favotites}`}>
                           <NavLink to={'/favorites'}>Избранное <span>({0})</span> </NavLink>
                           <span className={s.before}>
-                            <img className={s.fi_search_img} src={document.location.href + "/images/fi_heart.svg"} alt="heart"/>
+                            <img className={s.fi_search_img} src={fi_heart} alt="heart"/>
                           </span>
                         </div>
                       </li>
@@ -166,7 +180,7 @@ const Header = () => {
                           <h3 className={s.basket_title}>Корзина:</h3>
                           <p className={s.basket_text}>7 700 тенге.</p>
                           <span className={s.before}>
-                            <img className={s.fi_search_img} src={document.location.href + "/images/basket-cart.svg"} alt="basket"/>
+                            <img className={s.fi_search_img} src={basket_cart} alt="basket"/>
                             <span style={products < 1 ? {display: "none"} : {display: "block"}}>
                               {products > 9 ? 9 + "+" : products}
                             </span>
@@ -182,7 +196,7 @@ const Header = () => {
                         <button className={s.catalogue_btn} onClick={toggleDropdownCatalogue}>
                           Каталог продукции
                           <span className={s.before}>
-                          <img className={s.fi_search_img} src={document.location.href + "/images/fi_menu.png"} alt="menu_btn"/>
+                          <img className={s.fi_search_img} src={fi_menu} alt="menu_btn"/>
                         </span>
                         </button>
 
@@ -197,7 +211,7 @@ const Header = () => {
                                          onClick={toggleDropdownCatalogue}>
                                   {link}
                                   <div className={s.before}>
-                                    <img src={document.location.href + "/images/arrow-down.svg"} alt="" className={s.catalogue_link_arrow}/>
+                                    <img src={arrow_down} alt="" className={s.catalogue_link_arrow}/>
                                   </div>
                                 </NavLink>
                               </li>
@@ -245,7 +259,7 @@ const Header = () => {
                         <button className={s.change_language_btn}>
                           {localState.stateLanguages.currenLang}
                           <span className={s.before}>
-                          <img src={document.location.href + "/images/black-arrow.svg"} alt="arrow_btn" className={s.before_language_arrow}/>
+                          <img src={black_arrow} alt="arrow_btn" className={s.before_language_arrow}/>
                         </span>
                         </button>
                         <nav className={s.lang_dropdown_nav}>
@@ -296,20 +310,20 @@ const Header = () => {
             </div>
 
             <NavLink to={"/favorites"} className={s.adaptive_header_favorite}>
-              <img className={s.adaptive_header_favorite_img} src={document.location.href + "/images/fi_heart.svg"} alt="favorite"/>
+              <img className={s.adaptive_header_favorite_img} src={fi_heart} alt="favorite"/>
             </NavLink>
 
             <NavLink to={"/"} className={s.adaptive_header_logo}>
-              <img className={s.adaptive_header_logo_img} src={document.location.href + "/images/logo-adaptive.png"} alt="logo"/>
+              <img className={s.adaptive_header_logo_img} src={logo_adaptive} alt="logo"/>
             </NavLink>
 
             <button onClick={() => {setSearchState({active: !searchState.active})}}
                     className={s.adaptive_header_search}>
-              <img className={s.adaptive_header_search_img} src={document.location.href + "/images/fi_search.svg"} alt="search"/>
+              <img className={s.adaptive_header_search_img} src={search_icon} alt="search"/>
             </button>
 
             <NavLink to={"/basket"} className={s.adaptive_header_basket}>
-              <img className={s.adaptive_header_basket} src={document.location.href + "/images/basket-cart.svg"} alt="basket"/>
+              <img className={s.adaptive_header_basket} src={basket_cart} alt="basket"/>
               <span style={products < 1 ? {display: "none"} : {display: "block"}}>
                 {products > 9 ? 9 + "+" : products}
               </span>
@@ -325,7 +339,7 @@ const Header = () => {
                   <button onClick={toggleDropdownCities}>
                     {localState.stateCities.currentCity}
                     <span className={s.before}>
-                      <img className={s.fi_search_img} src={document.location.href + "/images/arrow-down.svg"} alt="arrow"/>
+                      <img className={s.fi_search_img} src={arrow_down} alt="arrow"/>
                     </span>
                   </button>
                   <div style={localState.stateCities.isCitiesDropdown ?
@@ -376,7 +390,7 @@ const Header = () => {
                              }}>
                       {link}
                       <div className={s.before}>
-                        <img src={document.location.href + "/images/arrow-down.svg"} alt="" className={s.catalogue_link_arrow}/>
+                        <img src={arrow_down} alt="" className={s.catalogue_link_arrow}/>
                       </div>
                     </NavLink>
                   </li>
@@ -429,7 +443,7 @@ const Header = () => {
             <div className={s.block_contact}>
               <a href="tel:+77272254360">+7 (727)225 43 60</a>
               <span className={s.before}>
-                <img className={s.fi_search_img} src={document.location.href + "/images/whatsapp.svg"} alt="whatsapp"/>
+                <img className={s.fi_search_img} src={whatsapp} alt="whatsapp"/>
               </span>
             </div>
           </div>
@@ -437,7 +451,7 @@ const Header = () => {
           <div className={s.search_menu} style={searchState.active ? {display: "block"} : {display: "none"}}>
             <div className={`${s.nav_item} ${s.fi_search}`}>
               <input placeholder={"Что ищите?"} type="text" className={s.search}/>
-              <img className={s.fi_search_img} src={document.location.href + "/images/fi_search.svg"} alt="search"/>
+              <img className={s.fi_search_img} src={search_icon} alt="search"/>
             </div>
           </div>
 

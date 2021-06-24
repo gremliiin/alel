@@ -6,6 +6,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {NavLink} from "react-router-dom";
 
+import recipe_1 from './../../common/images/recipe-1.png';
+import clock from './../../common/images/u_clock.svg';
+import fire from './../../common/images/u_fire.svg';
+
 const CardTypeThree = ({title}) => {
 
   if(title.length > 32) {
@@ -15,7 +19,7 @@ const CardTypeThree = ({title}) => {
   return(
       <NavLink to={"/basket"} className={s.CardTypeThree}>
         <div className={s.CardTypeThree_image}>
-          <img className={s.CardTypeThree_image_img} src={document.location.href + "/images/recipe-1.png"} alt="cardtypethree" />
+          <img className={s.CardTypeThree_image_img} src={recipe_1} alt="cardtypethree" />
         </div>
         <div className={s.CardTypeThree_content}>
           <h2 className={s.CardTypeThree_content_title}>{title}</h2>
@@ -23,13 +27,13 @@ const CardTypeThree = ({title}) => {
             <p className={s.CardTypeThree_info_text}>
               40-50 мин
               <span className={s.before}>
-                <img src={document.location.href + "/images/u_clock.svg"} alt="time" className={s.CardTypeThree_info_text_img}/>
+                <img src={clock} alt="time" className={s.CardTypeThree_info_text_img}/>
               </span>
             </p>
             <p className={s.CardTypeThree_info_text}>
               137 ккал
               <span className={s.before}>
-                <img src={document.location.href + "/images/u_fire.svg"} alt="fire" className={s.CardTypeThree_info_text_img}/>
+                <img src={fire} alt="fire" className={s.CardTypeThree_info_text_img}/>
               </span>
             </p>
           </div>

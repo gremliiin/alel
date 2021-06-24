@@ -11,6 +11,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CardTypeOne from "../CommonComponents/CardTypeOne";
 
+import chicken_meat_1 from './../../common/images/chicken-meat-1.png';
+import chicken_meat_2 from './../../common/images/chicken-meat-2.png';
+
 class CardTypeOneSlider extends React.Component {
   constructor(props) {
     super(props);
@@ -52,7 +55,7 @@ class CardTypeOneSlider extends React.Component {
                   id={1}
                   priceOld={1250}
                   priceNew={999}
-                  image={"/images/chicken-meat-1.png"}
+                  image={chicken_meat_1}
                   title={"Цыпленок бройлера"}
                   text={"Новая цена"}
               />
@@ -63,7 +66,7 @@ class CardTypeOneSlider extends React.Component {
                   id={1}
                   priceOld={990}
                   priceNew={690}
-                  image={"/images/chicken-meat-2.png"}
+                  image={chicken_meat_2}
                   title={"Куриные ножки"}
                   text={"Новая цена"}
               />
@@ -74,7 +77,7 @@ class CardTypeOneSlider extends React.Component {
                   id={1}
                   priceOld={1250}
                   priceNew={999}
-                  image={"/images/chicken-meat-1.png"}
+                  image={chicken_meat_1}
                   title={"Цыпленок бройлера"}
                   text={"Новая цена"}
               />
@@ -85,7 +88,7 @@ class CardTypeOneSlider extends React.Component {
                   id={1}
                   priceOld={990}
                   priceNew={690}
-                  image={"/images/chicken-meat-2.png"}
+                  image={chicken_meat_2}
                   title={"Куриные ножки"}
                   text={"Новая цена"}
               />

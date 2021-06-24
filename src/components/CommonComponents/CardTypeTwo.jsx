@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 import {NavLink} from "react-router-dom";
 import { ReactComponent as HeartCard } from './../../common/images/heart-card.svg';
 
+import product_1 from './../../common/images/product-1.png';
+
 const CardTypeTwo = () => {
 
   const [isLike, setIslike] = useState(false);
@@ -15,7 +17,7 @@ const CardTypeTwo = () => {
   return (
       <div className={s.CardTypeTwo}>
         <div className={s.CardTypeTwo_images}>
-          <img src={document.location.href + "images/product-1.png"} alt="product-1" className={s.CardTypeTwo_images_img}/>
+          <img src={product_1} alt="product-1" className={s.CardTypeTwo_images_img}/>
           <span className={s.CardTypeTwo_images_status}>Новинка</span>
           <span className={s.CardTypeTwo_images_like} onClick={() => {
             setIslike(!isLike);
