@@ -92,7 +92,7 @@ const Header = () => {
 
               <Col lg={2} style={{padding: 0}}>
                 <NavLink to={"/"} className={s.logo}>
-                  <img className={s.logo_img} src="/images/logo.png" alt="logo"/>
+                  <img className={s.logo_img} src={document.location.href + "/images/logo.png"} alt="logo"/>
                 </NavLink>
               </Col>
 
