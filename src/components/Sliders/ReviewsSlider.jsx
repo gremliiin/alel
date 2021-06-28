@@ -10,10 +10,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CardTypeOne from "../CommonComponents/CardTypeOne";
-import CardTypeTwo from "../CommonComponents/CardTypeTwo";
-import CardTypeThree from "../CommonComponents/CardTypeThree";
 
-class CardTypeThreeSlider extends React.Component{
+import chicken_meat_1 from './../../common/images/chicken-meat-1.png';
+import chicken_meat_2 from './../../common/images/chicken-meat-2.png';
+import ReviewsCard from "../CommonComponents/ReviewsCard";
+
+class StockSlider extends React.Component {
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);
@@ -28,43 +30,41 @@ class CardTypeThreeSlider extends React.Component{
     this.slider.slickPrev();
   }
 
-  render() {
+  render () {
 
     const settings = {
       infinite: true,
       speed: 500,
-      slidesToShow: 3,
+      slidesToShow: 2,
       slidesToScroll: 1,
       arrows: false,
-      centerPadding: "30px",
+      centerPadding: "60px",
       responsive: [
         {
-          breakpoint: 992,
+          breakpoint: 767,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
           }
-        },
-      ]
-    }
+        }]
+    };
 
     return (
         <div className={s.container_slider} style={{position: "relative"}}>
           <Slider ref={c => (this.slider = c)} {...settings}>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
+            <ReviewsCard />
+            <ReviewsCard />
+            <ReviewsCard />
+            <ReviewsCard />
           </Slider>
-          <button className="button slider_btn prev three" onClick={this.previous}>
+          <button className="button slider_btn prev" onClick={this.previous}>
           </button>
-          <button className="button slider_btn next three" onClick={this.next}>
+          <button className="button slider_btn next" onClick={this.next}>
           </button>
         </div>
     );
   }
+
 }
 
-export default CardTypeThreeSlider;
+export default StockSlider;

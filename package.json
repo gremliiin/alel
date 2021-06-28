@@ -16,9 +16,11 @@
     "react-css-burger": "^0.2.0",
     "react-dom": "^17.0.2",
     "react-elastic-carousel": "^0.11.5",
+    "react-google-maps": "^9.4.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
+    "recompose": "^0.30.0",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^1.1.2"
   },

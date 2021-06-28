@@ -79,10 +79,8 @@
     display: flex;
     align-items: center;
     background-color: #F8F4F3;
-}
-
-.CardTypeOne{
-    margin-right: 60px;
+    max-width: 540px;
+    margin-left: 5px;
 }
 
 .CardTypeOne_image{
@@ -159,8 +157,9 @@
 
 .CardTypeTwo{
     display: block;
-    margin-left: 30px;
+    max-width: 255px;
     background-color: #fff;
+    margin-left: 5px;
 }
 
 .CardTypeTwo_images{
@@ -336,10 +335,9 @@
 .CardTypeThree{
     display: block;
     max-width: 350px;
-    min-width: 300px;
     background-color: #fff;
     border-radius: 10px;
-    margin-left: 30px;
+    margin-left: 5px;
 }
 
 .CardTypeThree_image{
@@ -469,6 +467,86 @@
     line-height: 22px;
     color: #2B2A29;
 }
+
+.reviewscard{
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 540px;
+    margin-left: 5px;
+}
+
+.reviewscard_head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reviewscard_head_info{
+    display: flex;
+    align-items: center;
+}
+
+.reviewscard_head_ava{
+    margin-right: 15px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.reviewscard_head_ava_img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.reviewscard_head_description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.reviewscard_head_name{
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    color: #2B2A29;
+}
+
+.reviewscard_head_status{
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #808080;
+}
+
+.reviewscard_content{
+    margin-top: 26px;
+}
+
+.reviewscard_content_message{
+    padding: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2B2A29;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+}
+
+.reviewscard_content_date{
+    margin-top: 15px;
+    text-align: right;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #808080;
+}
+
+
 
 @media(max-width: 992px){
     .about_company_text_block{

@@ -11,17 +11,23 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CardTypeOne from "../CommonComponents/CardTypeOne";
 import CardTypeTwo from "../CommonComponents/CardTypeTwo";
-import CardTypeOneSlider from "../Sliders/CardTypeOneSlider";
-import CardTypeTwoSlider from "../Sliders/CardTypeTwoSlider";
+import StockSlider from "../Sliders/StockSlider";
+import NewProductsSlider from "../Sliders/NewProductsSlider";
 import CardTypeThree from "../CommonComponents/CardTypeThree";
-import CardTypeThreeSlider from "../Sliders/CardTypeThreeSlider";
+import RecipesSlider from "../Sliders/RecipesSlider";
 import AboutCompany from "../CommonComponents/AboutCompany";
 import Card from "../CommonComponents/Card";
+import ReviewsCard from "../CommonComponents/ReviewsCard";
+import ReviewsSlider from "../Sliders/ReviewsSlider";
+import MainMap from "../Maps/MainMap";
 
 import section_image_1 from './../../common/images/section-image-1.png';
 import section_image_2 from './../../common/images/section-image-2.png';
 import section_image_3 from './../../common/images/section-image-3.png';
 import section_image_4 from './../../common/images/section-image-4.png';
+import section_image_5 from './../../common/images/section-image-5.png';
+import section_image_6 from './../../common/images/section-image-6.png';
+
 
 
 class Main extends React.Component {
@@ -38,7 +44,7 @@ class Main extends React.Component {
           <section className={`${s.section_cards} ${s.section_dark}`}>
             <Container>
               <h2 className="simple_title">Ура, акция!</h2>
-              <CardTypeOneSlider />
+              <StockSlider />
             </Container>
           </section>
 
@@ -46,7 +52,7 @@ class Main extends React.Component {
             <Container>
               <h2 className="simple_title">Новинка доступная к заказу уже сегодня.</h2>
               <div className={s.choice_slider}>
-                <CardTypeTwoSlider />
+                <NewProductsSlider />
               </div>
               <div className={s.choice_cards}>
                 <CardTypeTwo />
@@ -60,7 +66,7 @@ class Main extends React.Component {
           <section className={`${s.section_cards_recipe} ${s.section_dark}`}>
             <Container>
               <h2 className="simple_title">Рецепты недели.</h2>
-              <CardTypeThreeSlider />
+              <RecipesSlider />
             </Container>
             <img src={section_image_1} className={s.section_img_left}/>
             <img src={section_image_2} className={s.section_img_right}/>
@@ -92,6 +98,22 @@ class Main extends React.Component {
                 </Col>
               </Row>
             </Container>
+          </section>
+
+          <section className={`${s.section_reviews} ${s.section_dark}`}>
+            <Container>
+              <h2 className="simple_title">Отзывы.</h2>
+              <ReviewsSlider />
+            </Container>
+          </section>
+
+          <section className={`${s.section_shops} ${s.section_dark}`}>
+            <Container>
+              <h2 className="simple_title">Фирменные магазины «Алель».</h2>
+              <MainMap />
+            </Container>
+            <img src={section_image_5} className={s.section_img_left}/>
+            <img src={section_image_6} className={s.section_img_right}/>
           </section>
         </div>
     );

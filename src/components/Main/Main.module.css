@@ -46,6 +46,10 @@
     bottom: -407px;
 }
 
+.section_shops{
+    position: relative;
+}
+
 @media(max-width: 1300px){
     .section_img_left,
     .section_img_right{

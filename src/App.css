@@ -39,7 +39,7 @@
 }
 
 .slider_btn.next{
-    right: -10px;
+    right: -57px;
 }
 
 .slider_btn.prev{
@@ -64,6 +64,10 @@
 
 .heart_card path{
     stroke: #27AE60;
+}
+
+.empty_star path{
+    fill: none;
 }
 
 button.slider_btn.prev.three{

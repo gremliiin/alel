@@ -14,7 +14,7 @@ import CardTypeOne from "../CommonComponents/CardTypeOne";
 import chicken_meat_1 from './../../common/images/chicken-meat-1.png';
 import chicken_meat_2 from './../../common/images/chicken-meat-2.png';
 
-class CardTypeOneSlider extends React.Component {
+class StockSlider extends React.Component {
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);
@@ -37,6 +37,7 @@ class CardTypeOneSlider extends React.Component {
       slidesToShow: 2,
       slidesToScroll: 1,
       arrows: false,
+      centerPadding: "60px",
       responsive: [
         {
           breakpoint: 767,
@@ -104,4 +105,4 @@ class CardTypeOneSlider extends React.Component {
 
 }
 
-export default CardTypeOneSlider;
+export default StockSlider;
