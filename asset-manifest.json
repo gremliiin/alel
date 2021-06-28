@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/alel/static/css/main.4795ff37.chunk.css",
-    "main.js": "/alel/static/js/main.70335670.chunk.js",
-    "main.js.map": "/alel/static/js/main.70335670.chunk.js.map",
-    "runtime-main.js": "/alel/static/js/runtime-main.31f1656c.js",
-    "runtime-main.js.map": "/alel/static/js/runtime-main.31f1656c.js.map",
+    "main.css": "/alel/static/css/main.2f1511d2.chunk.css",
+    "main.js": "/alel/static/js/main.1d57cb95.chunk.js",
+    "main.js.map": "/alel/static/js/main.1d57cb95.chunk.js.map",
+    "runtime-main.js": "/alel/static/js/runtime-main.f297e11b.js",
+    "runtime-main.js.map": "/alel/static/js/runtime-main.f297e11b.js.map",
     "static/css/2.0a09274c.chunk.css": "/alel/static/css/2.0a09274c.chunk.css",
-    "static/js/2.c78dab19.chunk.js": "/alel/static/js/2.c78dab19.chunk.js",
-    "static/js/2.c78dab19.chunk.js.map": "/alel/static/js/2.c78dab19.chunk.js.map",
-    "static/js/3.6827fc7a.chunk.js": "/alel/static/js/3.6827fc7a.chunk.js",
-    "static/js/3.6827fc7a.chunk.js.map": "/alel/static/js/3.6827fc7a.chunk.js.map",
+    "static/js/2.b7267379.chunk.js": "/alel/static/js/2.b7267379.chunk.js",
+    "static/js/2.b7267379.chunk.js.map": "/alel/static/js/2.b7267379.chunk.js.map",
+    "static/js/3.c2c3f1b7.chunk.js": "/alel/static/js/3.c2c3f1b7.chunk.js",
+    "static/js/3.c2c3f1b7.chunk.js.map": "/alel/static/js/3.c2c3f1b7.chunk.js.map",
     "index.html": "/alel/index.html",
     "static/css/2.0a09274c.chunk.css.map": "/alel/static/css/2.0a09274c.chunk.css.map",
-    "static/css/main.4795ff37.chunk.css.map": "/alel/static/css/main.4795ff37.chunk.css.map",
-    "static/js/2.c78dab19.chunk.js.LICENSE.txt": "/alel/static/js/2.c78dab19.chunk.js.LICENSE.txt",
+    "static/css/main.2f1511d2.chunk.css.map": "/alel/static/css/main.2f1511d2.chunk.css.map",
+    "static/js/2.b7267379.chunk.js.LICENSE.txt": "/alel/static/js/2.b7267379.chunk.js.LICENSE.txt",
     "static/media/stylesheet.css": "/alel/static/media/ZonaPro-UltraItalic.f6d7bdad.ttf",
     "static/media/about-company-img-1.fada60f0.png": "/alel/static/media/about-company-img-1.fada60f0.png",
     "static/media/arrow-down.4f5ce53d.svg": "/alel/static/media/arrow-down.4f5ce53d.svg",
@@ -29,6 +29,7 @@
     "static/media/fi_headphones.2697c1d1.svg": "/alel/static/media/fi_headphones.2697c1d1.svg",
     "static/media/fi_heart.a76846ea.svg": "/alel/static/media/fi_heart.a76846ea.svg",
     "static/media/fi_search.8daeec25.svg": "/alel/static/media/fi_search.8daeec25.svg",
+    "static/media/fi_star.9b4c01f4.svg": "/alel/static/media/fi_star.9b4c01f4.svg",
     "static/media/heart-card.8f05cccd.svg": "/alel/static/media/heart-card.8f05cccd.svg",
     "static/media/instagram_footer.89387153.svg": "/alel/static/media/instagram_footer.89387153.svg",
     "static/media/logo.51f60f2d.png": "/alel/static/media/logo.51f60f2d.png",
@@ -39,6 +40,8 @@
     "static/media/section-image-2.b1d0d1d8.png": "/alel/static/media/section-image-2.b1d0d1d8.png",
     "static/media/section-image-3.8a27cdce.png": "/alel/static/media/section-image-3.8a27cdce.png",
     "static/media/section-image-4.0d3b0f8c.png": "/alel/static/media/section-image-4.0d3b0f8c.png",
+    "static/media/section-image-5.b679c82d.png": "/alel/static/media/section-image-5.b679c82d.png",
+    "static/media/section-image-6.ac158361.png": "/alel/static/media/section-image-6.ac158361.png",
     "static/media/slick-theme.css": "/alel/static/media/slick.c94f7671.ttf",
     "static/media/u_clock.ab27a5ee.svg": "/alel/static/media/u_clock.ab27a5ee.svg",
     "static/media/u_fire.43efca1c.svg": "/alel/static/media/u_fire.43efca1c.svg",
@@ -46,10 +49,10 @@
     "static/media/youtube_footer.53fc7c9b.svg": "/alel/static/media/youtube_footer.53fc7c9b.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.31f1656c.js",
+    "static/js/runtime-main.f297e11b.js",
     "static/css/2.0a09274c.chunk.css",
-    "static/js/2.c78dab19.chunk.js",
-    "static/css/main.4795ff37.chunk.css",
-    "static/js/main.70335670.chunk.js"
+    "static/js/2.b7267379.chunk.js",
+    "static/css/main.2f1511d2.chunk.css",
+    "static/js/main.1d57cb95.chunk.js"
   ]
 }
