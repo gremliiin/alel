@@ -17,83 +17,41 @@ import basket_cart from './../../common/images/basket-cart.svg';
 import fi_menu from './../../common/images/fi_menu.png';
 import black_arrow from './../../common/images/black-arrow.svg';
 import logo_adaptive from './../../common/images/logo-adaptive.png';
+import FindModalResults from "../FindModalResults/FindModalResults";
 
 
 
 
 
 
-const Header = () => {
+const Header = (props) => {
 
-  const [localState, setLocalState] = useState(
-      {
-        stateCities: {
-          isCitiesDropdown: false,
-          cities: ["Алматы", "Караганда", "Каскелен"],
-          currentCity: "Алматы"
-        },
-        stateCatalogueLinks: {
-          isCatalogueLinksDropdown: false,
-          CatalogueLinks: ["Цыпленок бройлера", "Цыплята табака ", "Окорочка", "Бедро",
-            "Голень", "Крылышки", "Филе", "Грудинка", "Показать все"]
-        },
-        stateLanguages: {
-          isLanguageDropdown: false,
-          languages: ["Рус", "Қаз"],
-          currenLang: "Рус"
-        }
-      }
-  );
+  const [citiesDropdownState, setCitiesDropdown] = useState(false);
+  const [catalogueLinksDropdown, setCatalogueLinksDropdown] = useState(false);
+  const [languageDropdownState, setLanguageDropdown] = useState(false);
+  const [burgerState, setBurgerState] = useState(false);
+  const [searchState, setSearchState] = useState(false);
+  const [isFindModal, setIsFindModal] = useState(false);
 
-  const [burgerState, setBurgerState] = useState({active: false});
-  const [searchState, setSearchState] = useState({active: false});
+  let focusOnInput = false;
+  let enterOnFindModal = false;
 
-  let isBackgroundModal = localState.stateCities.isCitiesDropdown ||
-      localState.stateCatalogueLinks.isCatalogueLinksDropdown ||
-      localState.stateLanguages.isLanguageDropdown ||
-      searchState.active;
+  let isBackgroundModal = citiesDropdownState ||
+      catalogueLinksDropdown ||
+      languageDropdownState ||
+      searchState;
 
-  let products = 5;
-
-  window.State = localState;
-
-  let toggleDropdownCities = () => {
-    let state = {...localState};
-    state.stateCities.isCitiesDropdown = !localState.stateCities.isCitiesDropdown;
-    setLocalState({...state});
-  }
-
-  let toggleDropdownCatalogue = () => {
-    let state = {...localState};
-    state.stateCatalogueLinks.isCatalogueLinksDropdown = !localState.stateCatalogueLinks.isCatalogueLinksDropdown;
-    setLocalState({...state});
-  }
-
-  let toggleDropdownLanguages = () => {
-    let state = {...localState};
-    state.stateLanguages.isLanguageDropdown = !localState.stateLanguages.isLanguageDropdown;
-    setLocalState({...state});
-  }
-
-  let changeCity = (city) => {
-    let state = {...localState};
-    state.stateCities.currentCity = city;
-    setLocalState({...state});
-  }
-
-  let changeLanguage = (lang) => {
-    let state = {...localState};
-    state.stateLanguages.currenLang = lang;
-    setLocalState({...state});
+  let toggleElements = (currentState, setCurrenState) => {
+    setCurrenState(!currentState);
   }
 
   let cancelDropDowns = () => {
-    let state = {...localState};
-    state.stateCities.isCitiesDropdown = false;
-    state.stateCatalogueLinks.isCatalogueLinksDropdown = false;
-    state.stateLanguages.isLanguageDropdown = false;
-    setSearchState({active: false});
-    setLocalState({...state});
+    setCitiesDropdown(false);
+    setCatalogueLinksDropdown(false);
+    setLanguageDropdown(false);
+    setBurgerState(false);
+    setSearchState(false);
+    setIsFindModal(false);
   }
 
   return (
@@ -117,33 +75,49 @@ const Header = () => {
                     <ul className={s.nav_list}>
 
                       <li className={`${s.nav_item} ${s.fi_search}`}>
-                        <input placeholder={"Что ищите?"} type="text" className={s.search}/>
+                        <input onFocus={() => {
+                          focusOnInput = true;
+                          setIsFindModal(true);
+                        }} onBlur={() => {
+                          focusOnInput = false;
+                          setIsFindModal(focusOnInput || enterOnFindModal);
+                        }} placeholder={props.staticContent.textFindPlaceholder} type="text" className={s.search}/>
                         <img className={s.fi_search_img} src={search_icon} alt="search"/>
+                        <div onMouseEnter={() => {
+                          enterOnFindModal = true;
+
+                        }} onMouseLeave={() => {
+                          enterOnFindModal = false;
+                          setIsFindModal(focusOnInput || enterOnFindModal);
+                        }} style={isFindModal ? {display: "block"} : {display: "none"}}
+                             className={s.fi_search_find_modal}>
+                          <FindModalResults />
+                        </div>
                       </li>
 
                       <li className={s.nav_item}>
                         <div className={s.li_block}>
                           <div className={s.block_location}>
-                            <p>Местоположение:</p>
+                            <p>{props.staticContent.textLocation}</p>
                             <div className={s.block_location_wrapper}>
-                              <button onClick={toggleDropdownCities}>
-                                {localState.stateCities.currentCity}
+                              <button onClick={() => {toggleElements(citiesDropdownState, setCitiesDropdown)}}>
+                                {props.currentCity}
                                 <span className={s.before}>
                                   <img className={s.fi_search_img} src={arrow_down} alt="arrow"/>
                                 </span>
                               </button>
-                              <div style={localState.stateCities.isCitiesDropdown ?
+                              <div style={citiesDropdownState ?
                                   {display: "block"} :
                                   {display: "none"}}
                                    className={s.cities_dropdown}>
 
                                 <nav className={s.cities_dropdown_nav}>
                                   <ul className={s.cities_dropdown_list}>
-                                    {localState.stateCities.cities.map((city, id) => {
+                                    {props.cities.map((city, id) => {
                                       return <li key={id} className={s.cities_dropdown_item}>
                                         <button onClick={() => {
-                                          changeCity(city);
-                                          toggleDropdownCities();
+                                          props.changeCurrentCity(city);
+                                          setCitiesDropdown(false);
                                         }}
                                                 className={s.cities_dropdown_link}>{city}
                                         </button>
@@ -157,7 +131,7 @@ const Header = () => {
                           </div>
 
                           <div className={s.block_contact}>
-                            <a href="tel:+77272254360">+7 (727)225 43 60</a>
+                            <a href={"tel:" + props.links.linkPhone}>{props.links.linkPhone}</a>
                             <span className={s.before}>
                               <img className={s.fi_search_img} src={whatsapp} alt="whatsapp"/>
                             </span>
@@ -168,7 +142,7 @@ const Header = () => {
 
                       <li className={s.nav_item}>
                         <div className={`${s.li_block} ${s.favotites}`}>
-                          <NavLink to={'/favorites'}>Избранное <span>({0})</span> </NavLink>
+                          <NavLink to={'/favorites'}>{props.links.linkFavorites} <span>({props.favoritesItems})</span> </NavLink>
                           <span className={s.before}>
                             <img className={s.fi_search_img} src={fi_heart} alt="heart"/>
                           </span>
@@ -177,12 +151,12 @@ const Header = () => {
 
                       <li className={s.nav_item}>
                         <NavLink to={"/basket"} className={s.basket}>
-                          <h3 className={s.basket_title}>Корзина:</h3>
-                          <p className={s.basket_text}>7 700 тенге.</p>
+                          <h3 className={s.basket_title}>{props.staticContent.textBasket}</h3>
+                          <p className={s.basket_text}>{props.basketSum} {props.staticContent.textBasketSum}</p>
                           <span className={s.before}>
                             <img className={s.fi_search_img} src={basket_cart} alt="basket"/>
-                            <span style={products < 1 ? {display: "none"} : {display: "block"}}>
-                              {products > 9 ? 9 + "+" : products}
+                            <span style={props.basketProducts < 1 ? {display: "none"} : {display: "block"}}>
+                              {props.basketProducts > 9 ? 9 + "+" : props.basketProducts}
                             </span>
                           </span>
                         </NavLink>
@@ -193,22 +167,22 @@ const Header = () => {
                   <div className={s.nav_bottom_wrapper}>
                     <nav className={s.nav_bottom}>
                       <div className={s.menu_catalogue}>
-                        <button className={s.catalogue_btn} onClick={toggleDropdownCatalogue}>
-                          Каталог продукции
+                        <button className={s.catalogue_btn} onClick={() => {toggleElements(catalogueLinksDropdown, setCatalogueLinksDropdown);}}>
+                          {props.staticContent.textCatalogue}
                           <span className={s.before}>
                           <img className={s.fi_search_img} src={fi_menu} alt="menu_btn"/>
                         </span>
                         </button>
 
                         <nav className={s.catalogue_dropdown}
-                             style={localState.stateCatalogueLinks.isCatalogueLinksDropdown ?
+                             style={catalogueLinksDropdown ?
                                  {display: "block"} :
                                  {display: "none"}}>
                           <ul className={s.catalogue_dropdown_list}>
-                            {localState.stateCatalogueLinks.CatalogueLinks.map((link, id) => {
+                            {props.catalogueMenu.map((link, id) => {
                               return <li key={id} className={s.catalogue_dropdown_item}>
                                 <NavLink to={'/catalogue'}
-                                         onClick={toggleDropdownCatalogue}>
+                                         onClick={() => {toggleElements(catalogueLinksDropdown, setCatalogueLinksDropdown)}}>
                                   {link}
                                   <div className={s.before}>
                                     <img src={arrow_down} alt="" className={s.catalogue_link_arrow}/>
@@ -222,54 +196,35 @@ const Header = () => {
                       </div>
 
                       <ul className={s.catalogue_list}>
-
-                        <li className={s.catalogue_item}>
-                          <NavLink exact to={'/'} activeClassName={s.catalogue_link_active}
-                                   className={s.catalogue_link}>Главная</NavLink>
-                        </li>
-
-                        <li className={s.catalogue_item}>
-                          <NavLink to={'/about'} activeClassName={s.catalogue_link_active}
-                                   className={s.catalogue_link}>О нас</NavLink>
-                        </li>
-
-                        <li className={s.catalogue_item}>
-                          <NavLink to={'/certificates'} activeClassName={s.catalogue_link_active}
-                                   className={s.catalogue_link}>Сертификаты</NavLink>
-                        </li>
-
-                        <li className={s.catalogue_item}>
-                          <NavLink to={'/recipes'} activeClassName={s.catalogue_link_active}
-                                   className={s.catalogue_link}>Рецепты</NavLink>
-                        </li>
-
-                        <li className={s.catalogue_item}>
-                          <NavLink to={'/buyit'} activeClassName={s.catalogue_link_active}
-                                   className={s.catalogue_link}>Где купить?</NavLink>
-                        </li>
-
-                        <li className={s.catalogue_item}>
-                          <NavLink to={'/contacts'} activeClassName={s.catalogue_link_active}
-                                   className={s.catalogue_link}>Контакты</NavLink>
-                        </li>
-
+                        {
+                          props.linksMenu.map((content, id) => {
+                            return <li key={id} className={s.catalogue_item}>
+                              <NavLink exact to={content.link} activeClassName={s.catalogue_link_active}
+                                       className={s.catalogue_link}>{content.title}</NavLink>
+                            </li>
+                          })
+                        }
                       </ul>
 
-                      <div className={s.change_language} onClick={toggleDropdownLanguages}>
+                      <div className={s.change_language} onClick={() => {toggleElements(languageDropdownState, setLanguageDropdown)}}>
                         <button className={s.change_language_btn}>
-                          {localState.stateLanguages.currenLang}
+                          {props.currenLang}
                           <span className={s.before}>
                           <img src={black_arrow} alt="arrow_btn" className={s.before_language_arrow}/>
                         </span>
                         </button>
                         <nav className={s.lang_dropdown_nav}>
-                          <ul className={s.lang_dropdown_list} style={localState.stateLanguages.isLanguageDropdown ?
+                          <ul className={s.lang_dropdown_list} style={languageDropdownState ?
                               {display: "block"} : {display: "none"}}>
-                            {localState.stateLanguages.languages.map((lang, id) => {
+                            {props.languages.map((lang, id) => {
                               return <li key={id} className={s.lang_dropdown_item}>
                                 <button onClick={() => {
-                                  changeLanguage(lang);
-                                }} className={s.lang_dropdown_link}>{lang}
+                                  props.changeLang(lang);
+                                }} className={s.lang_dropdown_link}>
+                                  <span className={s.lang_dropdown_lang}>{lang}</span>
+                                  <span className={`${s.lang_dropdown_fake_input} ${ props.languages[id] === props.currenLang ? s.active : ""}`}>
+                                    <span className={s.lang_dropdown_fake_input_check}></span>
+                                  </span>
                                 </button>
                               </li>
                             })}
@@ -287,8 +242,8 @@ const Header = () => {
           </Container>
         </header>
         <DropdownModal indexZ={1}
-                       cancelDropDowns={() => {setSearchState({active: false})}}
-                       isBackgroundModal={searchState.active}
+                       cancelDropDowns={() => {setSearchState(false)}}
+                       isBackgroundModal={searchState}
                        color={"rgba(43, 42, 41, 0.5)"}
                        opacity={"1"}
         />
@@ -298,8 +253,8 @@ const Header = () => {
           <nav className={s.adaptive_header_main}>
             <div className={s.adaptive_header_btn}>
               <Burger
-                  onClick={() => setBurgerState({active: !burgerState.active})}
-                  active={burgerState.active}
+                  onClick={() => setBurgerState(!burgerState)}
+                  active={burgerState}
                   burger="collapse"
                   color="#27AE60"
                   hoverOpacity={1}
@@ -317,43 +272,43 @@ const Header = () => {
               <img className={s.adaptive_header_logo_img} src={logo_adaptive} alt="logo"/>
             </NavLink>
 
-            <button onClick={() => {setSearchState({active: !searchState.active})}}
+            <button onClick={() => {setSearchState(!searchState)}}
                     className={s.adaptive_header_search}>
               <img className={s.adaptive_header_search_img} src={search_icon} alt="search"/>
             </button>
 
             <NavLink to={"/basket"} className={s.adaptive_header_basket}>
               <img className={s.adaptive_header_basket} src={basket_cart} alt="basket"/>
-              <span style={products < 1 ? {display: "none"} : {display: "block"}}>
-                {products > 9 ? 9 + "+" : products}
+              <span style={props.basketProducts < 1 ? {display: "none"} : {display: "block"}}>
+                {props.basketProducts > 9 ? 9 + "+" : props.basketProducts}
               </span>
             </NavLink>
           </nav>
 
           <div className={s.adaptive_menu}
-               style={burgerState.active ? {display: "block"} : {display: "none"}}>
+               style={burgerState? {display: "block"} : {display: "none"}}>
             <div className={s.adaptive_location}>
               <div className={s.block_location}>
-                <p>Местоположение:</p>
+                <p>{props.staticContent.textLocation}</p>
                 <div className={s.block_location_wrapper}>
-                  <button onClick={toggleDropdownCities}>
-                    {localState.stateCities.currentCity}
+                  <button onClick={() => {toggleElements(citiesDropdownState, setCitiesDropdown)}}>
+                    {props.currentCity}
                     <span className={s.before}>
                       <img className={s.fi_search_img} src={arrow_down} alt="arrow"/>
                     </span>
                   </button>
-                  <div style={localState.stateCities.isCitiesDropdown ?
+                  <div style={citiesDropdownState ?
                       {display: "block"} :
                       {display: "none"}}
                        className={s.cities_dropdown}>
 
                     <nav className={s.cities_dropdown_nav}>
                       <ul className={s.cities_dropdown_list}>
-                        {localState.stateCities.cities.map((city, id) => {
+                        {props.cities.map((city, id) => {
                           return <li key={id} className={s.cities_dropdown_item}>
                             <button onClick={() => {
-                              changeCity(city);
-                              toggleDropdownCities();
+                              props.changeCurrentCity(city);
+                              setCitiesDropdown(false);
                             }}
                                     className={s.cities_dropdown_link}>{city}
                             </button>
@@ -368,25 +323,25 @@ const Header = () => {
             </div>
 
             <div className={s.adaptive_lang}>
-              {localState.stateLanguages.languages.map((lang, id) => {
+              {props.languages.map((lang, id) => {
                 return <button onClick={() => {
-                  changeLanguage(lang)
+                    props.changeLang(lang);
                 }}
                                key={id}
-                               className={`${lang === localState.stateLanguages.currenLang ? `${s.active}` : ""}`}>
+                               className={`${lang === props.currenLang ? `${s.active}` : ""}`}>
                   {lang}
                 </button>
               })}
             </div>
 
             <nav className={s.catalogue_dropdown}>
-              <h3 className={s.catalogue_dropdown_title}>Каталог продукции:</h3>
+              <h3 className={s.catalogue_dropdown_title}>{props.staticContent.textCatalogue}</h3>
               <ul className={s.catalogue_dropdown_list}>
-                {localState.stateCatalogueLinks.CatalogueLinks.map((link, id) => {
+                {props.catalogueMenu.map((link, id) => {
                   return <li key={id} className={s.catalogue_dropdown_item}>
                     <NavLink to={'/catalogue'}
                              onClick={() => {
-                               setBurgerState({active: !burgerState.active});
+                               setBurgerState(!burgerState);
                              }}>
                       {link}
                       <div className={s.before}>
@@ -400,58 +355,45 @@ const Header = () => {
             </nav>
 
             <ul className={s.catalogue_list}>
-
-              <li className={s.catalogue_item}>
-                <NavLink onClick={() => setBurgerState({active: !burgerState.active})}
-                         exact to={'/'} activeClassName={s.catalogue_link_active}
-                         className={s.catalogue_link}>Главная</NavLink>
-              </li>
-
-              <li className={s.catalogue_item}>
-                <NavLink onClick={() => setBurgerState({active: !burgerState.active})}
-                         to={'/about'} activeClassName={s.catalogue_link_active}
-                         className={s.catalogue_link}>О нас</NavLink>
-              </li>
-
-              <li className={s.catalogue_item}>
-                <NavLink onClick={() => setBurgerState({active: !burgerState.active})}
-                         to={'/certificates'} activeClassName={s.catalogue_link_active}
-                         className={s.catalogue_link}>Сертификаты</NavLink>
-              </li>
-
-              <li className={s.catalogue_item}>
-                <NavLink onClick={() => setBurgerState({active: !burgerState.active})}
-                         to={'/recipes'} activeClassName={s.catalogue_link_active}
-                         className={s.catalogue_link}>Рецепты</NavLink>
-              </li>
-
-              <li className={s.catalogue_item}>
-                <NavLink onClick={() => setBurgerState({active: !burgerState.active})}
-                         to={'/buyit'} activeClassName={s.catalogue_link_active}
-                         className={s.catalogue_link}>Где купить?</NavLink>
-              </li>
-
-              <li className={s.catalogue_item}>
-                <NavLink onClick={() => setBurgerState({active: !burgerState.active})}
-                         to={'/contacts'} activeClassName={s.catalogue_link_active}
-                         className={s.catalogue_link}>Контакты</NavLink>
-              </li>
-
+              {
+                props.linksMenu.map((content, id) => {
+                  return <li key={id} className={s.catalogue_item}>
+                    <NavLink exact to={content.link} activeClassName={s.catalogue_link_active}
+                             className={s.catalogue_link}>{content.title}</NavLink>
+                  </li>
+                })
+              }
 
             </ul>
 
             <div className={s.block_contact}>
-              <a href="tel:+77272254360">+7 (727)225 43 60</a>
+              <a href={"tel:" + props.links.linkPhone}>{props.links.linkPhone}</a>
               <span className={s.before}>
                 <img className={s.fi_search_img} src={whatsapp} alt="whatsapp"/>
               </span>
             </div>
           </div>
 
-          <div className={s.search_menu} style={searchState.active ? {display: "block"} : {display: "none"}}>
+          <div className={s.search_menu} style={searchState ? {display: "block"} : {display: "none"}}>
             <div className={`${s.nav_item} ${s.fi_search}`}>
-              <input placeholder={"Что ищите?"} type="text" className={s.search}/>
+              <input onFocus={() => {
+                focusOnInput = true;
+                setIsFindModal(true);
+              }} onBlur={() => {
+                focusOnInput = false;
+                setIsFindModal(focusOnInput || enterOnFindModal);
+              }} placeholder={props.staticContent.textFindPlaceholder} type="text" className={s.search}/>
               <img className={s.fi_search_img} src={search_icon} alt="search"/>
+            </div>
+            <div onMouseEnter={() => {
+              enterOnFindModal = true;
+
+            }} onMouseLeave={() => {
+              enterOnFindModal = false;
+              setIsFindModal(focusOnInput || enterOnFindModal);
+            }} style={isFindModal ? {display: "block"} : {display: "none"}}
+                 className={s.fi_search_find_modal}>
+              <FindModalResults />
             </div>
           </div>
 

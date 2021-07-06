@@ -9,10 +9,8 @@ import { ReactComponent as Star } from '../../common/images/fi_star.svg';
 
 import avatar from "../../common/images/reviews_avatar_1.png";
 
-let rattingLevel = 3;
-// const [stateStars, setStateStars] = useState([{
-//
-// }]);
+let rattingLevel = 3.5;
+
 
 const ReviewsCard = () => {
   return (
@@ -35,6 +33,11 @@ const ReviewsCard = () => {
               <Star className={rattingLevel < 4 ? "empty_star" : ""}/>
               <Star className={rattingLevel < 5 ? "empty_star" : ""}/>
             </span>
+          </div>
+          <div className={s.reviewscard_head_stars_adaptive}>
+              <span className={s.reviewscard_head_stars_adaptive_rattingLevel}>
+                <Star className={rattingLevel < 1 ? `empty_star ${s.star}` : `${s.star}`} /> {rattingLevel}
+              </span>
           </div>
         </div>
         <div className={s.reviewscard_content}>

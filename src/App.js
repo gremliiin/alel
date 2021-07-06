@@ -1,20 +1,16 @@
 import React from "react";
 import './App.css';
-import Header from "./components/Header/Header";
-import {
-  BrowserRouter as Router,
-  Route
-} from "react-router-dom";
+import {Route} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
-import { withRouter } from "react-router";
+import FindResults from "./components/FindResults/FindResults";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
-const MainUrlContext = React.createContext("l");
 
-function App({match, ...props}) {
+function App() {
   return (
     <div className="app">
-    <Header/>
+      <HeaderContainer />
     <div className="main">
 
       <Route exact path="/">
@@ -53,22 +49,14 @@ function App({match, ...props}) {
         Корзина
       </Route>
 
+      <Route exact path="/catalogue/findResults">
+        <FindResults />
+      </Route>
+
     </div>
     <Footer/>
   </div>
   );
-}
-
-class MainComponent extends React.Component {
-  
-
-  render() {
-    console.log(this.context);
-    return (
-      <div></div>
-);
-  }
-  
 }
 
 export default App;

@@ -1,0 +1,110 @@
+.find_modal_result{
+    width: 121%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.1);
+}
+
+.find_modal_result_title{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2B2A29;
+}
+
+.find_modal_result_catalogue{
+    margin-top: 20px;
+}
+
+.find_modal_result_catalogue_titles{
+    display: flex;
+    justify-content: space-between;
+}
+
+.find_modal_result_descr{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #2B2A29;
+}
+
+.find_modal_result_catalogue_showall{
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    padding-right: 25px;
+    line-height: 20px;
+    color: #27AE60;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    position: relative;
+}
+
+.before img {
+    display: flex;
+    align-items: center;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.find_modal_result_catalogue_showall .before,
+.find_modal_result_another_btn .before{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+    right: 0;
+    top: 0;
+}
+
+.find_modal_result_another{
+    margin-top: 20px;
+}
+
+.find_modal_result_another_btn{
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #2B2A29;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    position: relative;
+    margin-top: 10px;
+    width: 50%;
+    padding-right: 25px;
+}
+
+.find_modal_result_another_btn:nth-child(1){
+    margin-top: 15px;
+}
+
+.find_modal_result_catalogue_cards{
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media(max-width: 992px){
+    .find_modal_result{
+        width: 100%;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 0;
+        box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .find_modal_result_another_btn{
+        width: 100%;
+    }
+}
+
