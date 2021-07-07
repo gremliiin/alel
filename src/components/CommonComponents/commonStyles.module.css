@@ -160,6 +160,7 @@
     max-width: 255px;
     background-color: #fff;
     margin-left: 5px;
+    border-radius: 10px;
 }
 
 .CardTypeTwo_images{
@@ -197,8 +198,7 @@
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
-    padding: 5px 30px;
-    background-color: #E5F7E9;
+    background-color: #F7F7F7;
     border-radius: 15px;
 }
 
@@ -212,6 +212,10 @@
     color: #2B2A29;
     cursor: pointer;
     transition: 300ms;
+    width: 50%;
+    height: 100%;
+    padding: 5px;
+    border-radius: 15px;
 }
 
 .CardTypeTwo_content_btn:hover{

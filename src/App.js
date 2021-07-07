@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import FindResults from "./components/FindResults/FindResults";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import CatalogueContainer from "./components/Catalogue/CatalogueContainer";
 
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
       </Route>
 
       <Route path="/catalogue">
-        Каталог
+        <CatalogueContainer />
       </Route>
 
       <Route path="/basket">
