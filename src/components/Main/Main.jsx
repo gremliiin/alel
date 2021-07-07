@@ -48,20 +48,20 @@ class Main extends React.Component {
             </Container>
           </section>
 
-          <section className={`${s.section_cards_buy} ${s.section_dark}`}>
-            <Container>
-              <h2 className="simple_title">Новинка доступная к заказу уже сегодня.</h2>
-              <div className={s.choice_slider}>
-                <NewProductsSlider />
-              </div>
-              <div className={s.choice_cards}>
-                <CardTypeTwo />
-                <CardTypeTwo />
-                <CardTypeTwo />
-                <CardTypeTwo />
-              </div>
-            </Container>
-          </section>
+          {/*<section className={`${s.section_cards_buy} ${s.section_dark}`}>*/}
+          {/*  <Container>*/}
+          {/*    <h2 className="simple_title">Новинка доступная к заказу уже сегодня.</h2>*/}
+          {/*    <div className={s.choice_slider}>*/}
+          {/*      <NewProductsSlider />*/}
+          {/*    </div>*/}
+          {/*    <div className={s.choice_cards}>*/}
+          {/*      <CardTypeTwo />*/}
+          {/*      <CardTypeTwo />*/}
+          {/*      <CardTypeTwo />*/}
+          {/*      <CardTypeTwo />*/}
+          {/*    </div>*/}
+          {/*  </Container>*/}
+          {/*</section>*/}
 
           <section className={`${s.section_cards_recipe} ${s.section_dark}`}>
             <Container>
