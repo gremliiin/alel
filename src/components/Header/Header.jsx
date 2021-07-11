@@ -150,7 +150,7 @@ const Header = (props) => {
                       </li>
 
                       <li className={s.nav_item}>
-                        <NavLink to={"/basket"} className={s.basket}>
+                        <NavLink to={"/Basket"} className={s.basket}>
                           <h3 className={s.basket_title}>{props.staticContent.textBasket}</h3>
                           <p className={s.basket_text}>{props.basketSum} {props.staticContent.textBasketSum}</p>
                           <span className={s.before}>
@@ -277,7 +277,7 @@ const Header = (props) => {
               <img className={s.adaptive_header_search_img} src={search_icon} alt="search"/>
             </button>
 
-            <NavLink to={"/basket"} className={s.adaptive_header_basket}>
+            <NavLink to={"/Basket"} className={s.adaptive_header_basket}>
               <img className={s.adaptive_header_basket} src={basket_cart} alt="basket"/>
               <span style={props.basketProducts < 1 ? {display: "none"} : {display: "block"}}>
                 {props.basketProducts > 9 ? 9 + "+" : props.basketProducts}
@@ -286,7 +286,7 @@ const Header = (props) => {
           </nav>
 
           <div className={s.adaptive_menu}
-               style={burgerState? {display: "block"} : {display: "none"}}>
+               style={burgerState ? {transform: "translateX(0)"} : {transform: "translateX(-3000%)"}}>
             <div className={s.adaptive_location}>
               <div className={s.block_location}>
                 <p>{props.staticContent.textLocation}</p>

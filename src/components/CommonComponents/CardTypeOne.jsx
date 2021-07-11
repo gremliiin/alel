@@ -1,9 +1,6 @@
-import React, {useState, Component} from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import s from "./commonStyles.module.css";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import {NavLink} from "react-router-dom";
 
 const CardTypeOne = ({image, priceOld, priceNew, title, text, id}) => {
@@ -18,7 +15,7 @@ const CardTypeOne = ({image, priceOld, priceNew, title, text, id}) => {
   }
 
   return (
-      <NavLink to={"/basket"} className={s.CardTypeOne}>
+      <NavLink to={"/Basket"} className={s.CardTypeOne}>
         <div className={s.CardTypeOne_image}>
           <img className={s.CardTypeOne_image_img} src={image} alt={altCount() + `-${id}`}/>
           <span className={s.CardTypeOne_image_desc}>Акция</span>

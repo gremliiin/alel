@@ -1,10 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import s from "./commonStyles.module.css";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import {NavLink} from "react-router-dom";
 import { ReactComponent as Star } from '../../common/images/fi_star.svg';
 
 import avatar from "../../common/images/reviews_avatar_1.png";

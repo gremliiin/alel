@@ -1,11 +1,6 @@
-import React, {useState, Component} from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import s from "./../Main/Main.module.css";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import {NavLink} from "react-router-dom";
-import Banner from "../CommonComponents/Banner";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -62,14 +57,18 @@ class NewProductsSlider extends React.Component {
     return(
         <div className={s.container_slider} style={{position: "relative"}}>
           <Slider ref={c => (this.slider = c)} {...settings}>
-            <CardTypeTwo />
-            <CardTypeTwo />
-            <CardTypeTwo />
-            <CardTypeTwo />
-            <CardTypeTwo />
-            <CardTypeTwo />
-            <CardTypeTwo />
-            <CardTypeTwo />
+            {this.props.products.products.map((el, id) => {
+              return <CardTypeTwo
+                  maxWidth = {"255px"}
+                  key={id}
+                  productId={id}
+                  marginLeft = {0}
+                  product = {el}
+                  toggleLike = {this.props.toggleLike}
+                  staticContent = {this.props.products.staticContent}
+                  changeWeight = {this.props.changeWeight}
+              />
+            })}
           </Slider>
           <button className="button slider_btn prev" onClick={this.previous}>
           </button>

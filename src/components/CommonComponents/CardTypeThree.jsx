@@ -1,9 +1,6 @@
-import React, {useState, Component} from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import s from "./commonStyles.module.css";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import {NavLink} from "react-router-dom";
 
 import recipe_1 from './../../common/images/recipe-1.png';
@@ -17,7 +14,7 @@ const CardTypeThree = ({title}) => {
   }
 
   return(
-      <NavLink to={"/basket"} className={s.CardTypeThree}>
+      <NavLink to={"/Basket"} className={s.CardTypeThree}>
         <div className={s.CardTypeThree_image}>
           <img className={s.CardTypeThree_image_img} src={recipe_1} alt="cardtypethree" />
         </div>

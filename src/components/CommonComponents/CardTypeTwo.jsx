@@ -1,21 +1,13 @@
-import React, {useState, Component} from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import s from "./commonStyles.module.css";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import {NavLink} from "react-router-dom";
 import { ReactComponent as HeartCard } from './../../common/images/heart-card.svg';
 
 import product_1 from './../../common/images/product-1.png';
 
 const CardTypeTwo = (props) => {
-
-  const [isLike, setIslike] = useState(false);
-
-
   return (
-      <div className={s.CardTypeTwo} style={{marginLeft: props.marginLeft}}>
+      <div className={s.CardTypeTwo} style={{marginLeft: props.marginLeft, maxWidth: props.maxWidth}}>
         <div className={s.CardTypeTwo_images}>
           <img src={product_1} alt="product-1" className={s.CardTypeTwo_images_img}/>
           {
@@ -24,7 +16,7 @@ const CardTypeTwo = (props) => {
               ""
           }
           <span className={s.CardTypeTwo_images_like} onClick={() => {
-            props.toggleLike(props.id);
+            props.toggleLike(props.productId);
           }}>
             <span className={s.CardTypeTwo_images_like_img}>
               <HeartCard className={props.product.isLike ? "heart_card" : ""}/>
@@ -39,8 +31,11 @@ const CardTypeTwo = (props) => {
               : props.product.textNotIsStock}</p>
           <div className={s.CardTypeTwo_content_btns}>
             {props.product.weight.map((el, id) => {
-              return <button style={el.active ? {backgroundColor: "#E5F7E9", color: "#27AE60"} : {backgroundColor: "inherit"}}
-                             className={s.CardTypeTwo_content_btn}>{el.title + " кг"}</button>
+              return <button key={id} style={el.active ? {backgroundColor: "#E5F7E9", color: "#27AE60"} : {backgroundColor: "inherit"}}
+                             className={s.CardTypeTwo_content_btn}
+                             onClick={() => {
+                               props.changeWeight(props.productId, id);
+                             }}>{el.title + " кг"}</button>
             })}
           </div>
           <button className={s.CardTypeTwo_content_addBasket}>

@@ -550,6 +550,7 @@
     top: 60px;
     padding: 16px;
     z-index: 5;
+    transition: 1s;
 }
 
 .search_menu{

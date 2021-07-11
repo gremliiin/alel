@@ -6,6 +6,7 @@ import Main from "./components/Main/Main";
 import FindResults from "./components/FindResults/FindResults";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import CatalogueContainer from "./components/Catalogue/CatalogueContainer";
+import BasketContainer from "./components/Basket/BasketContainer";
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
       </Route>
 
       <Route path="/basket">
-        Корзина
+        <BasketContainer />
       </Route>
 
       <Route exact path="/catalogue/findResults">
