@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import s from "./Basket.module.css";
 import sCatalogue from "./../Catalogue/Catalogue.module.css";
 import Container from "react-bootstrap/Container";
@@ -11,6 +11,9 @@ import orderCartImg from "../../common/images/order_cart_img.png";
 import remove from "../../common/images/fi_remove.png";
 import arrowLink from "../../common/images/arrow_link_green.svg";
 import BasketMethodsDelivery from "./BasketMethodsDelivery";
+import paying_1  from "../../common/images/paying_1.png";
+import paying_2  from "../../common/images/paying_2.png";
+import paying_3  from "../../common/images/visa_cart.png";
 
 const Basket = () => {
 
@@ -27,6 +30,10 @@ const Basket = () => {
     transform: "translateY(-50%) rotate(-180deg)"
   }
 
+  const [stateBasketTabOne, setStateBasketTabOne] = useState(true);
+  const [stateBasketTabTwo, setStateBasketTabTwo] = useState(false);
+  const [stateBasketTabThree, setStateBasketTabThree] = useState(false);
+
   return (
       <div className={s.basket}>
         <Container>
@@ -42,42 +49,95 @@ const Basket = () => {
             <Col lg={8}>
               <div className={s.basket_main}>
                 <div className={s.basket_main_tab}>
-                  <button className={s.basket_main_tab_btn}>
-                    <span style={activeStylesItem} className={s.basket_main_tab_item}>1</span>
-                    <span style={activeStylesText} className={s.basket_main_tab_title}>Способ доставки</span>
-                    <span style={activeStylesArrow} className={s.basket_main_tab_arrow}>
+                  <button onClick={() => {setStateBasketTabOne(!stateBasketTabOne)}}
+                          className={s.basket_main_tab_btn}>
+                    <span style={ stateBasketTabOne ? activeStylesItem : {} } className={s.basket_main_tab_item}>1</span>
+                    <span style={stateBasketTabOne ? activeStylesText : {}} className={s.basket_main_tab_title}>Способ доставки</span>
+                    <span style={stateBasketTabOne ? activeStylesArrow : {}} className={s.basket_main_tab_arrow}>
                       <span className={s.before}>
                        <ArrowBtn className={s.basket_main_tab_arrow_img} />
                       </span>
                     </span>
                   </button>
-                  <div className={s.basket_main_tab_block}>
-                    <BasketMethodsDelivery />
+                  <div style={stateBasketTabOne ? {display: "block"} : {display: "none"}} className={s.basket_main_tab_block}>
+                    <BasketMethodsDelivery
+                        setStateBasketTabOne={setStateBasketTabOne}
+                        setStateBasketTabTwo={setStateBasketTabTwo}
+                    />
                   </div>
                 </div>
 
                 <div className={s.basket_main_tab}>
-                  <button className={s.basket_main_tab_btn}>
-                    <span className={s.basket_main_tab_item}>2</span>
-                    <span className={s.basket_main_tab_title}>Контактная информация</span>
-                    <span className={s.basket_main_tab_arrow}>
+                  <button onClick={() => {setStateBasketTabTwo(!stateBasketTabTwo)}}
+                      className={s.basket_main_tab_btn}>
+                    <span style={ stateBasketTabTwo ? activeStylesItem : {} } className={s.basket_main_tab_item}>2</span>
+                    <span style={ stateBasketTabTwo ? activeStylesText : {} } className={s.basket_main_tab_title}>Контактная информация</span>
+                    <span style={ stateBasketTabTwo ? activeStylesArrow : {} } className={s.basket_main_tab_arrow}>
                       <span className={s.before}>
                        <ArrowBtn className={s.basket_main_tab_arrow_img} />
                       </span>
                     </span>
                   </button>
+                  <div style={stateBasketTabTwo ? {display: "block"} : {display: "none"}} className={s.basket_main_tab_block}>
+                    <div className={s.contactInfo}>
+                      <div className={s.contactInfo_inputs}>
+                        <input placeholder="Имя" type="text" className={s.contactInfo_input}/>
+                        <input placeholder="Номер телефона" type="text" className={s.contactInfo_input}/>
+                        <input placeholder="E-mail" type="text" className={s.contactInfo_input}/>
+                        <input placeholder="Дата и время доставки" type="date" className={s.contactInfo_input}/>
+                      </div>
+                      <div className={s.contactInfo_btns}>
+                        <button onClick={() => {
+                          setStateBasketTabOne(true);
+                          setStateBasketTabTwo(false);
+                        }}
+                            className={s.contactInfo_prev}>Назад</button>
+                        <button onClick={() => {
+                          setStateBasketTabTwo(false);
+                          setStateBasketTabThree(true);
+                        }}
+                            className={s.contactInfo_submit}>Далее</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className={s.basket_main_tab}>
-                  <button className={s.basket_main_tab_btn}>
-                    <span className={s.basket_main_tab_item}>3</span>
-                    <span className={s.basket_main_tab_title}>Метод оплаты</span>
-                    <span className={s.basket_main_tab_arrow}>
+                  <button onClick={() => {setStateBasketTabThree(!stateBasketTabThree)}}
+                      className={s.basket_main_tab_btn}>
+                    <span style={ stateBasketTabThree ? activeStylesItem : {} } className={s.basket_main_tab_item}>3</span>
+                    <span style={ stateBasketTabThree ? activeStylesText : {} } className={s.basket_main_tab_title}>Метод оплаты</span>
+                    <span style={ stateBasketTabThree ? activeStylesArrow : {} } className={s.basket_main_tab_arrow}>
                       <span className={s.before}>
                        <ArrowBtn className={s.basket_main_tab_arrow_img} />
                       </span>
                     </span>
                   </button>
+                  <div style={stateBasketTabThree ? {display: "block"} : {display: "none"}}  className={s.basket_main_tab_block}>
+                    <div className={s.methodPay}>
+                      <div className={s.methodPay_carts}>
+                        <div className={s.methodPay_cart}>
+                          <span className={s.methodPay_cart_text}>Наличными курьеру</span>
+                          <span className={s.before}>
+                            <img src={paying_1} alt="img"/>
+                          </span>
+                        </div>
+                        <div className={s.methodPay_cart}>
+                          <span className={s.methodPay_cart_text}>Картой при получении</span>
+                          <span className={s.before}>
+                            <img src={paying_2} alt="img"/>
+                          </span>
+                        </div>
+                        <div className={s.methodPay_cart}>
+                          <span className={s.methodPay_cart_text}>Онлайн оплата</span>
+                          <span className={s.before}>
+                            <img src={paying_3} alt="img"/>
+                          </span>
+                        </div>
+                      </div>
+                      <button className={s.methodPay_form_submit}>Оформить заказ</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </Col>
