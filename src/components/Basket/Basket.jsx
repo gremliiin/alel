@@ -49,8 +49,7 @@ const Basket = () => {
             <Col lg={8}>
               <div className={s.basket_main}>
                 <div className={s.basket_main_tab}>
-                  <button onClick={() => {setStateBasketTabOne(!stateBasketTabOne)}}
-                          className={s.basket_main_tab_btn}>
+                  <button className={s.basket_main_tab_btn}>
                     <span style={ stateBasketTabOne ? activeStylesItem : {} } className={s.basket_main_tab_item}>1</span>
                     <span style={stateBasketTabOne ? activeStylesText : {}} className={s.basket_main_tab_title}>Способ доставки</span>
                     <span style={stateBasketTabOne ? activeStylesArrow : {}} className={s.basket_main_tab_arrow}>
@@ -68,8 +67,7 @@ const Basket = () => {
                 </div>
 
                 <div className={s.basket_main_tab}>
-                  <button onClick={() => {setStateBasketTabTwo(!stateBasketTabTwo)}}
-                      className={s.basket_main_tab_btn}>
+                  <button className={s.basket_main_tab_btn}>
                     <span style={ stateBasketTabTwo ? activeStylesItem : {} } className={s.basket_main_tab_item}>2</span>
                     <span style={ stateBasketTabTwo ? activeStylesText : {} } className={s.basket_main_tab_title}>Контактная информация</span>
                     <span style={ stateBasketTabTwo ? activeStylesArrow : {} } className={s.basket_main_tab_arrow}>
@@ -103,8 +101,7 @@ const Basket = () => {
                 </div>
 
                 <div className={s.basket_main_tab}>
-                  <button onClick={() => {setStateBasketTabThree(!stateBasketTabThree)}}
-                      className={s.basket_main_tab_btn}>
+                  <button className={s.basket_main_tab_btn}>
                     <span style={ stateBasketTabThree ? activeStylesItem : {} } className={s.basket_main_tab_item}>3</span>
                     <span style={ stateBasketTabThree ? activeStylesText : {} } className={s.basket_main_tab_title}>Метод оплаты</span>
                     <span style={ stateBasketTabThree ? activeStylesArrow : {} } className={s.basket_main_tab_arrow}>

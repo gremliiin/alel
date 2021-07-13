@@ -3,10 +3,10 @@ import './App.css';
 import {Route} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
-import FindResults from "./components/FindResults/FindResults";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import CatalogueContainer from "./components/Catalogue/CatalogueContainer";
 import BasketContainer from "./components/Basket/BasketContainer";
+import Product from "./components/Product/Product";
 
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
         Избранное
       </Route>
 
-      <Route path="/catalogue">
+      <Route exact path="/catalogue">
         <CatalogueContainer />
       </Route>
 
@@ -51,8 +51,8 @@ function App() {
         <BasketContainer />
       </Route>
 
-      <Route exact path="/catalogue/findResults">
-        <FindResults />
+      <Route path="/catalogue/product">
+        <Product />
       </Route>
 
     </div>

@@ -1,0 +1,247 @@
+.product{
+    padding: 30px 0 100px;
+    background-color: #F7F8F9;
+}
+
+.product_recommendations_title{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #2B2A29;
+}
+
+.product_recommendations_products{
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+}
+
+.product_main{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.product_title{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    color: #2B2A29;
+}
+
+.product_status{
+    display: block;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #27AE60;
+}
+
+.product_description{
+    margin-top: 25px;
+}
+
+.product_description_title{
+    font-size: 16px;
+    line-height: 19px;
+    color: #808080;
+}
+
+.product_description_text{
+    display: block;
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2B2A29;
+}
+
+
+.product_composition_list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product_composition_item:nth-child(1){
+    margin-top: 25px;
+    padding-right: 15px;
+}
+
+.product_composition_item + .product_composition_item{
+    margin-top: 25px;
+    border-left: 1px solid #E6E6E6;
+    padding: 0 15px;
+}
+
+.product_composition_item_title{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #808080;
+}
+
+.product_composition_item_text{
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2B2A29;
+}
+
+.product_toggle{
+    margin-top: 25px;
+    max-width: 255px;
+}
+
+.product_toggle_title{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #808080;
+}
+
+.product_submitBlock{
+    display: flex;
+    margin-top: 25px;
+}
+
+.product_submitBlock_count{
+    max-width: 105px;
+}
+
+.product_submitBlock_title{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #808080;
+}
+
+.product_submitBlock_submit{
+    display: block;
+    border: 1px solid #27AE60;
+    padding: 12px 18px;
+    width: 270px;
+    margin-top: auto;
+    margin-left: 50px;
+    background-color: #27AE60;
+    border-radius: 22px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.product_submitBlock_submit:hover{
+    background-color: inherit;
+    transition: 300ms;
+    color: #27AE60;
+}
+
+.product_recipes{
+    margin-top: 25px;
+}
+
+.sliderMain{
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.sliderMain img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product_slider{
+    display: block;
+}
+
+.product_slider_adaptive{
+    display: none;
+}
+
+@media(max-width: 1200px){
+    .product_recommendations_products{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media(max-width: 992px){
+    .product_recommendations_products{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product_title{
+        margin-top: 25px;
+    }
+}
+
+@media(max-width: 767px){
+
+    .product_status,
+    .product_description_title,
+    .product_description_text,
+    .product_composition_item_title,
+    .product_composition_item_text,
+    .product_toggle_title,
+    .product_submitBlock_title
+    {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .product_title{
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    .product_composition_item:nth-child(1){
+        padding-right: 10px;
+    }
+
+    .product_composition_item + .product_composition_item{
+        padding: 0 10px;
+    }
+
+    .product_recommendations_title{
+        font-size: 20px;
+        line-height: 23px;
+    }
+}
+
+@media(max-width: 575px){
+    .product_slider{
+        display: none;
+    }
+
+    .product_slider_adaptive{
+        display: block;
+    }
+
+    .product_submitBlock{
+        flex-direction: column;
+    }
+
+    .product_submitBlock_submit{
+        width: 100%;
+        margin-top: 15px;
+        margin-left: 0;
+    }
+}
+
+@media(max-width: 450px){
+    .product_recommendations_products{
+        grid-template-columns: 1fr;
+    }
+}

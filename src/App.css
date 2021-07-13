@@ -78,6 +78,124 @@ button.slider_btn.next.three{
     right: -70px;
 }
 
+.general_btn{
+    display: block;
+    border: 1px solid #27AE60;
+    background-color: #27AE60;
+    border-radius: 22px;
+    color: #fff;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.general_btn:hover{
+    background-color: inherit;
+    border: 1px solid #27AE60;
+    color: #27AE60;
+    transition: 300ms;
+}
+
+.slick_pictures{
+    display: flex !important;
+    justify-content: space-between;
+}
+
+.slick_pictures li{
+    display: block;
+    max-width: 132px;
+    height: 73px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255, 0);
+}
+.slick_pictures li div{
+    display: block;
+    max-width: 132px;
+    height: 73px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.slick_pictures li div img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.slick_pictures .slick-active{
+    border: 2px solid #27AE60;
+}
+
+.slider_product_btn{
+    position: absolute;
+    top: 40%;
+    transform: translateY(-40%);
+    z-index: 1;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background-color: #27AE60;
+    cursor: pointer;
+}
+
+.slider_product_btn.prev{
+    left: 20px;
+}
+
+.slider_product_btn.next{
+    right: 20px;
+}
+
+.arrow_slider_btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+}
+
+.arrow_slider_btn.prev{
+    transform: translate(-50%, -50%) rotate(-180deg);
+}
+
+.arrow_slider_btn svg{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.arrow_slider_btn svg path{
+    stroke: #FFFFFF;
+}
+
+.product_slider_dots{
+    display: flex !important;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.product_slider_dots li + li{
+    margin-left: 15px;
+}
+
+.product_slider_dots li.slick-active button{
+    background-color: #27AE60;
+}
+
+.product_slider_dots li button{
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    background-color: #EDEDED;
+    width: 8px;
+    height: 8px;
+    font-size: 0;
+}
+
 @media (max-width: 1125px) {
     .slider_btn{
         display: none;

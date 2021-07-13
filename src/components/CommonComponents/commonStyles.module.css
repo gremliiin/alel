@@ -216,6 +216,8 @@
     border-radius: 15px;
 }
 
+
+
 .CardTypeTwo_content_btn:hover{
     transition: 300ms;
     color: #27AE60;
@@ -227,7 +229,7 @@
 
 .CardTypeTwo_content_addBasket{
     margin-top: 21px;
-    border: none;
+    border: 1px solid #27AE60;
     background-color: #27AE60;
     border-radius: 22px;
     padding: 12px 30px;
@@ -238,7 +240,15 @@
     color: #FFFFFF;
     cursor: pointer;
     width: 100%;
+    transition: 300ms;
 }
+
+.CardTypeTwo_content_addBasket:hover{
+    transition: 300ms;
+    color: #27AE60;
+    background-color: inherit;
+}
+
 .CardTypeTwo_images_status{
     position: absolute;
     top: 15px;
