@@ -43,7 +43,7 @@ function App() {
         Избранное
       </Route>
 
-      <Route exact path="/catalogue">
+      <Route exact path="/catalogue/:categoryId?">
         <CatalogueContainer />
       </Route>
 

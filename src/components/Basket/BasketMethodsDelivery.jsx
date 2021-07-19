@@ -32,13 +32,34 @@ const BasketMethodsDelivery = (props) => {
             <h2 className={s.adressForm_title}>Адрес доставки</h2>
             <div className={s.adressForm_form}>
               <div className={s.adressForm_form_inputs}>
-                <input placeholder={"Улица"} type="text" className={s.adressForm_from_input}/>
-                <input placeholder={"Дом/корпус"} type="number" className={s.adressForm_from_input}/>
-                <input placeholder={"Квартира"} type="number" className={s.adressForm_from_input}/>
+                <input onChange={(e) => {props.changeStreet(e.target.value)}}
+                       value={props.street || ''}
+                       placeholder={"Улица"}
+                       type="text"
+                       className={s.adressForm_from_input}
+                       style={props.errorsMethodsDelivery[0] ? {border: "1px solid red"} : {border: "inherit"}}
+                />
+                <input onChange={(e) => {props.changeHouse(e.target.value)}}
+                       value={props.house}
+                        placeholder={"Дом/корпус"}
+                        type="number"
+                        className={s.adressForm_from_input}
+                       style={props.errorsMethodsDelivery[1] ? {border: "1px solid red"} : {border: "inherit"}}
+                />
+                <input  onChange={(e) => {props.changeFlat(e.target.value)}}
+                        value={props.flat}
+                        placeholder={"Квартира"}
+                        type="number"
+                        className={s.adressForm_from_input}
+                        style={props.errorsMethodsDelivery[2] ? {border: "1px solid red"} : {border: "inherit"}}
+                />
               </div>
               <button onClick={() => {
-                props.setStateBasketTabOne(false);
-                props.setStateBasketTabTwo(true);
+                props.checkMethodDelivery(1);
+                if(props.errorsMethodsDelivery.every(el => el === "")){
+                  props.setStateBasketTabOne(false);
+                  props.setStateBasketTabTwo(true);
+                }
               }}
                   className={s.adressForm_form_submit}>Далее</button>
             </div>

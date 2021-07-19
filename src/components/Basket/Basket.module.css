@@ -136,9 +136,17 @@
 
 .basket_yourOrder_cart_btns{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+}
+
+.basket_yourOrder_cart_btns span,
+.basket_yourOrder_cart_btns button{
+    margin-left: 20px;
+}
+
+.basket_yourOrder_cart_btns span:nth-child(1){
+    margin-left: 0;
 }
 
 .basket_yourOrder_cart_price{

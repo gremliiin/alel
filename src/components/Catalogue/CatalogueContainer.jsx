@@ -8,9 +8,31 @@ import {
   setCheckTypeOfProductsAC,
   setSortingAC
 } from "../../redux/ProductsFiltersReducer";
-import {changeWeightAC, toggleLikeAC} from "../../redux/ProductsReducer";
+import {changeWeightAC, getProductsByCategoryTC, toggleLikeAC} from "../../redux/ProductsReducer";
+import {compose} from "redux";
+import {withRouter} from "react-router-dom";
+import {getCurrentCategoryTC} from "../../redux/CatalogueReducer";
+import {addProductsAC, setProductsAC} from "../../redux/BasketReducer";
 
 class CatalogueContainer extends React.Component {
+
+  getCategory() {
+    let categoryId = this.props.match.params.categoryId;
+    if(categoryId !== undefined) {
+      this.props.getCurrentCategoryTC(categoryId);
+      this.props.getProductsByCategoryTC(categoryId);
+    }
+  }
+
+  componentDidMount() {
+    this.getCategory();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+   if( prevProps.match.params.categoryId !== this.props.match.params.categoryId){
+     this.getCategory();
+   }
+  }
 
   render() {
     return (
@@ -25,11 +47,13 @@ class CatalogueContainer extends React.Component {
               calorieValue = {this.props.calorieValue}
               kilos = {this.props.kilos}
               sidebarStaticContent = {this.props.sidebarStaticContent}
+              currentCategory = {this.props.currentCategory}
               setSorting = {this.props.setSortingAC}
               toggleLike = {this.props.toggleLikeAC}
               changeWeight = {this.props.changeWeightAC}
               setCheckTypeOfProducts = {this.props.setCheckTypeOfProductsAC}
               setCheckKilos = {this.props.setCheckKilosAC}
+              addProducts = {this.props.addProductsAC}
               changeChoosePricesFrom = {this.props.changeChoosePricesFromAC}
               changeChoosePricesTo = {this.props.changeChoosePricesToAC}
               changeCalorieValueFrom = {this.props.changeCalorieValueFromAC}
@@ -46,6 +70,7 @@ const mapStateToProps = (state) => {
     staticContent: state.catalogue.staticContent,
     sortMenu: state.productsFilter.sortMenu,
     product: state.catalogue.product,
+    currentCategory: state.catalogue.currentCategory,
     products: state.products,
     typeOfProductsMenu: state.productsFilter.typeOfProductsMenu,
     choosePrices: state.productsFilter.choosePrices,
@@ -65,7 +90,13 @@ const mapDispatchToProps = {
    changeChoosePricesFromAC,
    changeChoosePricesToAC,
    changeCalorieValueFromAC,
-   changeCalorieValueToAC
+   changeCalorieValueToAC,
+   addProductsAC,
+   getCurrentCategoryTC,
+   getProductsByCategoryTC
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CatalogueContainer);
+export default compose(
+    withRouter,
+    connect(mapStateToProps, mapDispatchToProps)
+)(CatalogueContainer);

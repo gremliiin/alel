@@ -14,8 +14,9 @@ import BasketMethodsDelivery from "./BasketMethodsDelivery";
 import paying_1  from "../../common/images/paying_1.png";
 import paying_2  from "../../common/images/paying_2.png";
 import paying_3  from "../../common/images/visa_cart.png";
+import BasketCart from "./BasketCart";
 
-const Basket = () => {
+const Basket = (props) => {
 
   const activeStylesItem = {
     borderColor: "#27AE60",
@@ -33,6 +34,19 @@ const Basket = () => {
   const [stateBasketTabOne, setStateBasketTabOne] = useState(true);
   const [stateBasketTabTwo, setStateBasketTabTwo] = useState(false);
   const [stateBasketTabThree, setStateBasketTabThree] = useState(false);
+  const [stateMethodsPayment, setStateMethodsPayment] = useState([true, false, false]);
+
+  const changeStateMethodsPayment = (elId) => {
+    let state = [...stateMethodsPayment];
+    state = state.map((el, id) => {
+      if(id === elId) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    setStateMethodsPayment(state);
+  }
 
   return (
       <div className={s.basket}>
@@ -62,6 +76,14 @@ const Basket = () => {
                     <BasketMethodsDelivery
                         setStateBasketTabOne={setStateBasketTabOne}
                         setStateBasketTabTwo={setStateBasketTabTwo}
+                        street = {props.ordering.street}
+                        house = {props.ordering.house}
+                        flat = {props.ordering.flat}
+                        changeStreet = {props.changeStreet }
+                        changeHouse = {props.changeHouse}
+                        changeFlat = {props.changeFlat}
+                        errorsMethodsDelivery = {props.ordering.errorsMethodsDelivery}
+                        checkMethodDelivery = {props.checkMethodDelivery}
                     />
                   </div>
                 </div>
@@ -79,20 +101,48 @@ const Basket = () => {
                   <div style={stateBasketTabTwo ? {display: "block"} : {display: "none"}} className={s.basket_main_tab_block}>
                     <div className={s.contactInfo}>
                       <div className={s.contactInfo_inputs}>
-                        <input placeholder="Имя" type="text" className={s.contactInfo_input}/>
-                        <input placeholder="Номер телефона" type="text" className={s.contactInfo_input}/>
-                        <input placeholder="E-mail" type="text" className={s.contactInfo_input}/>
-                        <input placeholder="Дата и время доставки" type="date" className={s.contactInfo_input}/>
+                        <input onChange={(e) => {props.changeName(e.target.value)}}
+                          value={props.ordering.name}
+                          placeholder="Имя"
+                          type="text"
+                          className={s.contactInfo_input}
+                          style={props.ordering.errorsContactsInfo[0] ? {border: "1px solid red"} : {border: "inherit"}}
+                        />
+                        <input onChange={(e) => {props.changePhone(e.target.value)}}
+                          value={props.ordering.phone}
+                          placeholder="Номер телефона"
+                          type="number"
+                          className={s.contactInfo_input}
+                          style={props.ordering.errorsContactsInfo[1] ? {border: "1px solid red"} : {border: "inherit"}}
+                        />
+                        <input onChange={(e) => {props.changeEmail(e.target.value)}}
+                          value={props.ordering.email}
+                          placeholder="E-mail"
+                          type="text"
+                          className={s.contactInfo_input}
+                          style={props.ordering.errorsContactsInfo[2] ? {border: "1px solid red"} : {border: "inherit"}}
+                        />
+                        <input onChange={(e) => {props.changeDeliveryDate(e.target.value)}}
+                          value={props.ordering.delivery_dt}
+                          placeholder="Дата и время доставки"
+                          type="date"
+                          className={s.contactInfo_input}
+                          style={props.ordering.errorsContactsInfo[3] ? {border: "1px solid red"} : {border: "inherit"}}
+                        />
                       </div>
                       <div className={s.contactInfo_btns}>
                         <button onClick={() => {
-                          setStateBasketTabOne(true);
-                          setStateBasketTabTwo(false);
+                            setStateBasketTabOne(true);
+                            setStateBasketTabTwo(false);
                         }}
                             className={s.contactInfo_prev}>Назад</button>
                         <button onClick={() => {
-                          setStateBasketTabTwo(false);
-                          setStateBasketTabThree(true);
+                          props.checkContactsInfo();
+                          if(props.ordering.errorsContactsInfo.every(el => el === "")){
+                            setStateBasketTabTwo(false);
+                            setStateBasketTabThree(true);
+                          }
+
                         }}
                             className={s.contactInfo_submit}>Далее</button>
                       </div>
@@ -113,26 +163,42 @@ const Basket = () => {
                   <div style={stateBasketTabThree ? {display: "block"} : {display: "none"}}  className={s.basket_main_tab_block}>
                     <div className={s.methodPay}>
                       <div className={s.methodPay_carts}>
-                        <div className={s.methodPay_cart}>
+                        <div onClick={() => {
+                          changeStateMethodsPayment(0);
+                        }}
+                          className={`${s.methodPay_cart} ${stateMethodsPayment[0] ? s.active : ""}`}>
                           <span className={s.methodPay_cart_text}>Наличными курьеру</span>
                           <span className={s.before}>
                             <img src={paying_1} alt="img"/>
                           </span>
                         </div>
-                        <div className={s.methodPay_cart}>
+                        <div onClick={() => {
+                          changeStateMethodsPayment(1);
+                        }}
+                          className={`${s.methodPay_cart} ${stateMethodsPayment[1] ? s.active : ""}`}>
                           <span className={s.methodPay_cart_text}>Картой при получении</span>
                           <span className={s.before}>
                             <img src={paying_2} alt="img"/>
                           </span>
                         </div>
-                        <div className={s.methodPay_cart}>
+                        <div onClick={() => {
+                          changeStateMethodsPayment(2);
+                        }}
+                          className={`${s.methodPay_cart} ${stateMethodsPayment[2] ? s.active : ""}`}>
                           <span className={s.methodPay_cart_text}>Онлайн оплата</span>
                           <span className={s.before}>
                             <img src={paying_3} alt="img"/>
                           </span>
                         </div>
                       </div>
-                      <button className={s.methodPay_form_submit}>Оформить заказ</button>
+                      <button onClick={() => {
+                        stateMethodsPayment.forEach((el, id) => {
+                          if(el) {
+                            props.changeMethodPayment(id + 1);
+                          }
+                        });
+                      }}
+                        className={s.methodPay_form_submit}>Оформить заказ</button>
                     </div>
                   </div>
                 </div>
@@ -142,63 +208,22 @@ const Basket = () => {
               <div className={s.basket_yourOrder}>
                 <h2 className={s.basket_yourOrder_title}>Ваш заказ:</h2>
                 <ul className={s.basket_yourOrder_cart}>
-                  <li className={s.basket_yourOrder_cart_item}>
-                    <div className={s.basket_yourOrder_cart_image}>
-                      <img src={orderCartImg} alt="orderCart"/>
-                    </div>
-                    <div className={s.basket_yourOrder_cart_content}>
-                      <h3 className={s.basket_yourOrder_cart_content_title}>Куриное бедро (0,7 кг)</h3>
-                      <div className={s.basket_yourOrder_cart_btns}>
-                        <span className={s.basket_yourOrder_cart_price}>1290 ₸</span>
-                        <button className={s.basket_yourOrder_cart_minus}>-</button>
-                        <span className={s.basket_yourOrder_cart_total}>1</span>
-                        <button className={s.basket_yourOrder_cart_plus}>+</button>
-                      </div>
-                    </div>
-                    <div className={s.basket_yourOrder_cart_remove}>
-                      <img src={remove} alt=""/>
-                    </div>
-                  </li>
-                  <li className={s.basket_yourOrder_cart_item}>
-                    <div className={s.basket_yourOrder_cart_image}>
-                      <img src={orderCartImg} alt="orderCart"/>
-                    </div>
-                    <div className={s.basket_yourOrder_cart_content}>
-                      <h3 className={s.basket_yourOrder_cart_content_title}>Куриное бедро (0,7 кг)</h3>
-                      <div className={s.basket_yourOrder_cart_btns}>
-                        <span className={s.basket_yourOrder_cart_price}>1290 ₸</span>
-                        <button className={s.basket_yourOrder_cart_minus}>-</button>
-                        <span className={s.basket_yourOrder_cart_total}>1</span>
-                        <button className={s.basket_yourOrder_cart_plus}>+</button>
-                      </div>
-                    </div>
-                    <div className={s.basket_yourOrder_cart_remove}>
-                      <img src={remove} alt=""/>
-                    </div>
-                  </li>
-                  <li className={s.basket_yourOrder_cart_item}>
-                    <div className={s.basket_yourOrder_cart_image}>
-                      <img src={orderCartImg} alt="orderCart"/>
-                    </div>
-                    <div className={s.basket_yourOrder_cart_content}>
-                      <h3 className={s.basket_yourOrder_cart_content_title}>Куриное бедро (0,7 кг)</h3>
-                      <div className={s.basket_yourOrder_cart_btns}>
-                        <span className={s.basket_yourOrder_cart_price}>1290 ₸</span>
-                        <button className={s.basket_yourOrder_cart_minus}>-</button>
-                        <span className={s.basket_yourOrder_cart_total}>1</span>
-                        <button className={s.basket_yourOrder_cart_plus}>+</button>
-                      </div>
-                    </div>
-                    <div className={s.basket_yourOrder_cart_remove}>
-                      <img src={remove} alt=""/>
-                    </div>
-                  </li>
+                  {props.products.map((el, id) => {
+                    return <BasketCart
+                      key={id}
+                      productId = {id}
+                      product = {el}
+                      deleteProducts = {props.deleteProducts}
+                      addProducts = {props.addProducts}
+                      deleteOneProduct = {props.deleteOneProduct}
+                    />
+                  })}
                 </ul>
 
                 <div className={s.basket_yourOrder_total}>
                   <div className={s.basket_yourOrder_total_titleBlock}>
                     <span className={s.basket_yourOrder_total_titleText}>Итого:</span>
-                    <span className={s.basket_yourOrder_total_titlePrice}>4560 ₸</span>
+                    <span className={s.basket_yourOrder_total_titlePrice}>{props?.totalPrice} ₸</span>
                   </div>
                   <div className={s.basket_yourOrder_total_textBlock}>
                     <span className={s.basket_yourOrder_total_text}>Цена без учета стоимости доставки</span>

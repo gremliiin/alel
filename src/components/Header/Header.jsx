@@ -152,11 +152,11 @@ const Header = (props) => {
                       <li className={s.nav_item}>
                         <NavLink to={"/Basket"} className={s.basket}>
                           <h3 className={s.basket_title}>{props.staticContent.textBasket}</h3>
-                          <p className={s.basket_text}>{props.basketSum} {props.staticContent.textBasketSum}</p>
+                          <p className={s.basket_text}>{props.basket.totalPrice} {props.staticContent.textBasketSum}</p>
                           <span className={s.before}>
                             <img className={s.fi_search_img} src={basket_cart} alt="basket"/>
-                            <span style={props.basketProducts < 1 ? {display: "none"} : {display: "block"}}>
-                              {props.basketProducts > 9 ? 9 + "+" : props.basketProducts}
+                            <span style={props.basket.totalQuantity < 1 ? {display: "none"} : {display: "block"}}>
+                              {props.basket.totalQuantity > 9 ? 9 + "+" : props.basket.totalQuantity}
                             </span>
                           </span>
                         </NavLink>
@@ -179,11 +179,11 @@ const Header = (props) => {
                                  {display: "block"} :
                                  {display: "none"}}>
                           <ul className={s.catalogue_dropdown_list}>
-                            {props.catalogueMenu.map((link, id) => {
+                            {props.category.map((el, id) => {
                               return <li key={id} className={s.catalogue_dropdown_item}>
-                                <NavLink to={'/catalogue'}
+                                <NavLink to={`/catalogue/${el.id}`}
                                          onClick={() => {toggleElements(catalogueLinksDropdown, setCatalogueLinksDropdown)}}>
-                                  {link}
+                                  {el.name}
                                   <div className={s.before}>
                                     <img src={arrow_down} alt="" className={s.catalogue_link_arrow}/>
                                   </div>

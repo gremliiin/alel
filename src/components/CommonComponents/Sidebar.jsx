@@ -23,15 +23,15 @@ const Sidebar = (props) => {
               </span>
             </button>
             <div className={s.sidebar_filters_checkbox}>
-              {props.typeOfProductsMenu.map((el, id) => {
+              {props.currentCategory.map((el, id) => {
                 return <label onClick={() => {props.setCheckTypeOfProducts(id)}} key={id}
                               className={s.checkbox_block}>
                         <span className={s.checkbox_falseInput}>
-                          <span style={el.isCheck ? {display: "block"} : {display: "none"}} className={s.before}>
+                          <span style={props.typeOfProductsMenu[id].isCheck ? {display: "block"} : {display: "none"}} className={s.before}>
                             <img src={checkbox} alt="arrow"/>
                           </span>
                         </span>
-                        <span className={s.checkbox_title}>{el.title}</span>
+                        <span className={s.checkbox_title}>{el.name}</span>
                       </label>
               })}
 

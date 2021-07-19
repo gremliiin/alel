@@ -2,8 +2,14 @@ import React from "react";
 import {connect} from "react-redux";
 import Header from "./Header";
 import {changeCurrentCityAC, changeLanguageAC} from "../../redux/HeaderReudcer";
+import {getCategoryTC} from "../../redux/CatalogueReducer";
 
 class HeaderContainer extends React.Component {
+
+  componentDidMount() {
+    this.props.getCategoryTC();
+  }
+
   render() {
     return(
         <>
@@ -19,6 +25,8 @@ class HeaderContainer extends React.Component {
               currenLang = {this.props.currenLang}
               basketProducts = {this.props.basketProducts}
               currentCity = {this.props.currentCity}
+              category = {this.props.category}
+              basket = {this.props.basket}
               changeLang = {this.props.changeLanguageAC}
               changeCurrentCity = {this.props.changeCurrentCityAC}
           />
@@ -40,12 +48,15 @@ const mapStateToProps = (state) => {
     currenLang: state.header.currenLang,
     currentCity: state.header.currentCity,
     basketProducts: state.header.basketProducts,
+    category: state.catalogue.category,
+    basket: state.basket,
   }
 }
 
 const mapDispatchToProps = {
       changeLanguageAC,
       changeCurrentCityAC,
+      getCategoryTC
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

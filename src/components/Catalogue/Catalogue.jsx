@@ -10,6 +10,7 @@ import Sidebar from "../CommonComponents/Sidebar";
 import DropdownModal from "../Header/DropdownModal";
 import section_image_1 from "../../common/images/section-image-1.png";
 import section_image_2 from "../../common/images/section-image-2.png";
+import Preloader from "../CommonComponents/Preloader";
 
 
 const Catalogue = (props) => {
@@ -47,6 +48,7 @@ const Catalogue = (props) => {
               changeCalorieValueFrom={props.changeCalorieValueFrom}
               changeCalorieValueTo={props.changeCalorieValueTo}
               setStatusSidebar={setStatusSidebar}
+              currentCategory = {props.currentCategory}
           />
         </div>
         <Container>
@@ -61,7 +63,7 @@ const Catalogue = (props) => {
                   className={s.catalogue_countProduct_quantity}>{`${props.product.quantity} ${props.staticContent.textProducts}`}</span>
             </div>
             <div className={s.catalogue_menu_block}>
-              <button onClick={() => {setStatusMenuSorting(!statusMenuSorting);}}
+              <button onClick={() => {setStatusMenuSorting(!statusMenuSorting)}}
                   className={s.catalogue_sort}>
                 {props.staticContent.textSortMenu}
                 <span className={s.before}>
@@ -160,6 +162,7 @@ const Catalogue = (props) => {
                     changeChoosePricesTo={props.changeChoosePricesTo}
                     changeCalorieValueFrom={props.changeCalorieValueFrom}
                     changeCalorieValueTo={props.changeCalorieValueTo}
+                    currentCategory ={props.currentCategory}
                     setStatusSidebar={setStatusSidebar}
                 />
               </div>
@@ -167,16 +170,19 @@ const Catalogue = (props) => {
             </Col>
             <Col lg={9}>
               <div className={s.catalogue_cards}>
-                {props.products.products.map((el, id) => {
+                {props.products.isFetching ? <Preloader /> :
+                    props.products.products.map((el, id) => {
                   return <CardTypeTwo
                       key={id}
                       productId={id}
                       maxWidth={"auto"}
                       marginLeft={0}
                       product={el}
+                      stateProduct={props.products.stateProducts[id]}
                       toggleLike={props.toggleLike}
                       staticContent={props.products.staticContent}
                       changeWeight={props.changeWeight}
+                      addProducts = {props.addProducts}
                   />
                 })}
               </div>

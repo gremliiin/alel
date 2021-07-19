@@ -22,11 +22,15 @@ import section_image_4 from './../../common/images/section-image-4.png';
 import section_image_5 from './../../common/images/section-image-5.png';
 import section_image_6 from './../../common/images/section-image-6.png';
 import {connect} from "react-redux";
-import {changeWeightAC, toggleLikeAC} from "../../redux/ProductsReducer";
+import {changeWeightAC, getProductsByCategoryTC, toggleLikeAC} from "../../redux/ProductsReducer";
 
 
 
 class Main extends React.Component {
+
+  componentDidMount() {
+    this.props.getProductsByCategoryTC(1);
+  }
 
 
   render() {
@@ -47,12 +51,7 @@ class Main extends React.Component {
             <Container>
               <h2 className="simple_title">Новинка доступная к заказу уже сегодня.</h2>
               <div className={s.choice_slider}>
-                <NewProductsSlider
-                    products = {this.props.products}
-                    toggleLike = {this.props.toggleLikeAC}
-                    staticContent = {this.props.products.staticContent}
-                    changeWeight = {this.props.changeWeightAC}
-                />
+                <NewProductsSlider />
               </div>
               <div className={s.choice_cards}>
 
@@ -120,13 +119,14 @@ class Main extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products,
+    typeOfProductsMenu: state.productsFilter.typeOfProductsMenu,
+    choosePrices: state.productsFilter.choosePrices,
+    calorieValue: state.productsFilter.calorieValue
   }
 }
 
 const mapDispatchToProps = {
-  toggleLikeAC,
-  changeWeightAC,
+  getProductsByCategoryTC
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
