@@ -1,6 +1,7 @@
 const ADD_PRODUCTS = "BASKET/ADD_PRODUCTS";
 const DELETE_PRODUCTS = "BASKET/DELETE_PRODUCTS";
 const DELETE_ONE_PRODUCTS = "BASKET/DELETE_ONE_PRODUCTS";
+const CLEAR_BASKET = "BASKET/CLEAR_BASKET";
 
 let initialState = {
   products: [],
@@ -65,6 +66,15 @@ const BasketReducer = (state = JSON.parse(localStorage.getItem("alel/basket")), 
       copyState.totalQuantity = state.totalQuantity - +state.products.find(el => (el.id === +action.id && el.weight === action.weight)).quantity;
       localStorage.setItem("alel/basket", JSON.stringify(copyState));
       return copyState;
+    case CLEAR_BASKET:
+      copyState = {...state}
+      copyState = {
+        products: [],
+        totalQuantity: 0,
+        totalPrice: 0,
+      };
+      localStorage.clear();
+      return copyState;
     default:
       localStorage.setItem("alel/basket", JSON.stringify(state));
       return state;
@@ -83,6 +93,7 @@ export const addProductsAC = ({id, name, quantity, photo, weight, price, sum}) =
 });
 export const deleteProductsAC = (id, weight) => ({type: DELETE_PRODUCTS, id, weight});
 export const deleteOneProductAC = (id, weight, price) => ({type: DELETE_ONE_PRODUCTS, id, weight, price});
+export const clearBasketAC = () => ({type: CLEAR_BASKET});
 
 
 export default BasketReducer;

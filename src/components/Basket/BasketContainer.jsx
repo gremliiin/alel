@@ -9,7 +9,7 @@ import {
   changeHouseAC, changeMethodPaymentAC,
   changeNameAC, changePhoneAC,
   changeStreetAC, checkContactsInfoAC,
-  checkMethodDeliveryAC
+  checkMethodDeliveryAC, doCheckoutTC
 } from "../../redux/OrderingReducer";
 
 class BasketContainer extends React.Component {
@@ -33,6 +33,7 @@ class BasketContainer extends React.Component {
       changeDeliveryDate = {this.props.changeDeliveryDateAC}
       checkContactsInfo={this.props.checkContactsInfoAC}
       changeMethodPayment = {this.props.changeMethodPaymentAC}
+      doCheckout = {this.props.doCheckoutTC}
     />
   }
 }
@@ -59,7 +60,8 @@ const mapDispatchToProps = {
   changeEmailAC,
   changeDeliveryDateAC,
   checkContactsInfoAC,
-  changeMethodPaymentAC
+  changeMethodPaymentAC,
+  doCheckoutTC
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BasketContainer);

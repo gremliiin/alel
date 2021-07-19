@@ -28,3 +28,13 @@ export const products = {
     });
   }
 }
+
+export const ordering = {
+  sendBasketTo(form) {
+    return axios.post(`${baseUrl}orders`, form).then(response => {
+      return response.data;
+    }).catch(() => {
+      return 'error';
+    })
+  }
+}

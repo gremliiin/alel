@@ -1,3 +1,6 @@
+import {ordering} from "../api/api";
+import {clearBasketAC} from "./BasketReducer";
+
 const CHANGE_STREET = "ORDERING/CHANGE_STREET";
 const CHANGE_HOUSE = "ORDERING/CHANGE_HOUSE";
 const CHANGE_FLAT = "ORDERING/CHANGE_FLAT";
@@ -8,6 +11,8 @@ const CHANGE_PHONE = "ORDERING/CHANGE_PHONE";
 const CHANGE_EMAIL = "ORDERING/CHANGE_EMAIL";
 const CHANGE_DELIVERY_DATE = "ORDERING/CHANGE_DELIVERY_DATE";
 const CHANGE_METHOD_PAYMENT = "ORDERING/CHANGE_METHOD_PAYMENT";
+const SET_IS_FETCHING = "ORDERING/SET_IS_FETCHING";
+const SET_IS_SUBMIT = "ORDERING/SET_IS_SUBMIT"
 
 
 
@@ -20,6 +25,8 @@ const initialState = {
   street: "",
   house: "",
   flat: "",
+  isFetching: false,
+  isSubmit: false,
   dop_info: null,
   payment_method_id: 1,
   delivery_dt: "",
@@ -118,6 +125,14 @@ const OrderingReducer = (state = initialState, action) => {
       copyState = {...state};
       copyState.payment_method_id = action.id;
       return copyState;
+    case SET_IS_FETCHING:
+      copyState = {...state};
+      copyState.isFetching = action.bool;
+      return copyState;
+    case SET_IS_SUBMIT:
+      copyState = {...state};
+      copyState.isSubmit = action.bool;
+      return copyState;
     default:
       return {...state}
   }
@@ -133,8 +148,10 @@ export const changeDeliveryDateAC = (value) => ({type: CHANGE_DELIVERY_DATE, val
 export const checkMethodDeliveryAC = (id) => ({type: CHECK_METHOD_DELIVERY, id});
 export const checkContactsInfoAC = () => ({type: CHECK_CONTACTS_INFO});
 export const changeMethodPaymentAC = (id) => ({type: CHANGE_METHOD_PAYMENT, id});
+export const setIsFetching = (bool) => ({type: SET_IS_FETCHING, bool});
+export const setIsSubmit = (bool) => ({type: SET_IS_SUBMIT, bool});
 
-export const doCheckoutTC = (stateOrdering) => (dispatch) => {
+export const doCheckoutTC = (stateOrdering) => async (dispatch) => {
   let form = {
     email: stateOrdering.email,
     name: stateOrdering.name,
@@ -150,6 +167,23 @@ export const doCheckoutTC = (stateOrdering) => (dispatch) => {
     products: stateOrdering.products,
   };
 
+  dispatch(setIsFetching(true));
+  JSON.parse(localStorage.getItem('alel/basket')).products.forEach(el => {
+    form.products.push({volume: el.weight, id: el.id});
+  });
+
+
+  let data = await ordering.sendBasketTo(form);
+  dispatch(setIsFetching(false));
+  if(data !== "error") {
+    dispatch(clearBasketAC());
+    dispatch(setIsSubmit(true));
+    setTimeout(() => {
+      dispatch(setIsSubmit(false));
+    }, 10000)
+  } else {
+
+  }
 
 }
 
