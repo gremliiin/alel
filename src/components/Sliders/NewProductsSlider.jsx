@@ -4,7 +4,7 @@ import s from "./../Main/Main.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import CardTypeTwo from "../CommonComponents/CardTypeTwo";
+import ProductAddCart from "../CommonComponents/ProductAddCart";
 import {changeWeightAC, getProductsByCategoryTC, toggleLikeAC} from "../../redux/ProductsReducer";
 import {connect} from "react-redux";
 import {addProductsAC} from "../../redux/BasketReducer";
@@ -61,7 +61,7 @@ class NewProductsSlider extends React.Component {
             {
               this.props.products.products.map((el, id) => {
               console.log(1)
-              return <CardTypeTwo
+              return <ProductAddCart
                   maxWidth = {"255px"}
                   key={el.id}
                   productId={id}

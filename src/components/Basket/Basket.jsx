@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import s from "./Basket.module.css";
 import sCatalogue from "./../Catalogue/Catalogue.module.css";
 import Container from "react-bootstrap/Container";
@@ -8,7 +8,6 @@ import Col from "react-bootstrap/Col";
 import arrowLink from "../../common/images/arrow_link_green.svg";
 import BasketCart from "./BasketCart";
 import BasketMain from "./BasketMain";
-import BasketMethodsDelivery from "./BasketMethodsDelivery";
 import BasketSuccessSubmit from "./BasketSuccessSubmit";
 
 const Basket = (props) => {

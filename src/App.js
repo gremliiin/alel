@@ -7,6 +7,8 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import CatalogueContainer from "./components/Catalogue/CatalogueContainer";
 import BasketContainer from "./components/Basket/BasketContainer";
 import Product from "./components/Product/Product";
+import Recipes from "./components/Recipes/Recipes";
+import Recipe from "./components/Recipes/Recipe";
 
 
 function App() {
@@ -27,8 +29,12 @@ function App() {
         Сертификаты
       </Route>
 
-      <Route path="/recipes">
-        Рецепты
+      <Route exact path="/recipes">
+        <Recipes />
+      </Route>
+
+      <Route path="/recipes/recipe/:recipeId?">
+        <Recipe />
       </Route>
 
       <Route path="/buyit">

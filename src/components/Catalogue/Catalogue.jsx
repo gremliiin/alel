@@ -5,12 +5,13 @@ import {Col, Container, Row} from "react-bootstrap";
 import btn_sort from "../../common/images/sort_btn.svg";
 import arrow_sort from "../../common/images/arrow_sort.svg";
 import btn_filters from "../../common/images/fi_filters.svg";
-import CardTypeTwo from "../CommonComponents/CardTypeTwo";
+import ProductAddCart from "../CommonComponents/ProductAddCart";
 import Sidebar from "../CommonComponents/Sidebar";
 import DropdownModal from "../Header/DropdownModal";
 import section_image_1 from "../../common/images/section-image-1.png";
 import section_image_2 from "../../common/images/section-image-2.png";
 import Preloader from "../CommonComponents/Preloader";
+import BreadCrumbs from "../CommonComponents/BreadCrumbs";
 
 
 const Catalogue = (props) => {
@@ -52,9 +53,10 @@ const Catalogue = (props) => {
           />
         </div>
         <Container>
-          <div className={s.catalogue_breadCrumbs}>
-            <NavLink to={"/"}>{props.staticContent.textLinkNav}</NavLink> / <span>{props.product.title}</span>
-          </div>
+          <BreadCrumbs
+            links={[{text:props.staticContent.textLinkNav, path:"/"}]}
+            title={props.product.title}
+          />
 
           <div className={s.catalogue_infoProduct}>
             <div className={s.catalogue_countProduct}>
@@ -172,7 +174,7 @@ const Catalogue = (props) => {
               <div className={s.catalogue_cards}>
                 {props.products.isFetching ? <Preloader /> :
                     props.products.products.map((el, id) => {
-                  return <CardTypeTwo
+                  return <ProductAddCart
                       key={id}
                       productId={id}
                       maxWidth={"auto"}

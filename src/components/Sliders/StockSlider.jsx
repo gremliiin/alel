@@ -4,7 +4,7 @@ import s from "./../Main/Main.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import CardTypeOne from "../CommonComponents/CardTypeOne";
+import StockCard from "../CommonComponents/StockCard";
 
 import chicken_meat_1 from './../../common/images/chicken-meat-1.png';
 import chicken_meat_2 from './../../common/images/chicken-meat-2.png';
@@ -47,7 +47,7 @@ class StockSlider extends React.Component {
         <div className={s.container_slider} style={{position: "relative"}}>
           <Slider ref={c => (this.slider = c)} {...settings}>
             <div key={1}>
-              <CardTypeOne
+              <StockCard
                   id={1}
                   priceOld={1250}
                   priceNew={999}
@@ -58,7 +58,7 @@ class StockSlider extends React.Component {
             </div>
 
             <div key={2}>
-              <CardTypeOne
+              <StockCard
                   id={1}
                   priceOld={990}
                   priceNew={690}
@@ -69,7 +69,7 @@ class StockSlider extends React.Component {
             </div>
 
             <div key={3}>
-              <CardTypeOne
+              <StockCard
                   id={1}
                   priceOld={1250}
                   priceNew={999}
@@ -80,7 +80,7 @@ class StockSlider extends React.Component {
             </div>
 
             <div key={4}>
-              <CardTypeOne
+              <StockCard
                   id={1}
                   priceOld={990}
                   priceNew={690}

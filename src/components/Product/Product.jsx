@@ -3,7 +3,7 @@ import s from "./Product.module.css";
 import Container from "react-bootstrap/Container";
 import {changeWeightAC, toggleLikeAC} from "../../redux/ProductsReducer";
 import {connect} from "react-redux";
-import CardTypeTwo from "../CommonComponents/CardTypeTwo";
+import ProductAddCart from "../CommonComponents/ProductAddCart";
 import sCatalogue from "../Catalogue/Catalogue.module.css";
 import {NavLink} from "react-router-dom";
 import Row from "react-bootstrap/Row";
@@ -119,7 +119,7 @@ class Product extends React.Component {
               <div className={s.product_recommendations_products}>
                 {this.props.products.map((el, id) => {
                   if (id < 4) {
-                    return <CardTypeTwo
+                    return <ProductAddCart
                         key={id}
                         productId={id}
                         maxWidth={"auto"}

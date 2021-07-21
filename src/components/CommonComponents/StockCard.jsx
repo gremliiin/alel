@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import s from "./commonStyles.module.css";
 import {NavLink} from "react-router-dom";
 
-const CardTypeOne = ({image, priceOld, priceNew, title, text, id}) => {
+const StockCard = ({image, priceOld, priceNew, title, text, id}) => {
 
   const altCount = () => {
     let alt = image;
@@ -32,4 +32,4 @@ const CardTypeOne = ({image, priceOld, priceNew, title, text, id}) => {
   );
 }
 
-export default CardTypeOne;
+export default StockCard;

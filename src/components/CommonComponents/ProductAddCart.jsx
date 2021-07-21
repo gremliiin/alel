@@ -5,7 +5,7 @@ import { ReactComponent as HeartCard } from './../../common/images/heart-card.sv
 
 import product_1 from './../../common/images/product-1.png';
 
-const CardTypeTwo = (props) => {
+const ProductAddCart = (props) => {
   useEffect(() => {
     props.changeWeight(props.productId, 0);
   },[]);
@@ -73,4 +73,4 @@ const CardTypeTwo = (props) => {
 
 
 
-export default CardTypeTwo;
+export default ProductAddCart;

@@ -4,7 +4,7 @@ import s from "./../Main/Main.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import CardTypeThree from "../CommonComponents/CardTypeThree";
+import RecipeCard from "../CommonComponents/RecipeCard";
 
 class RecipesSlider extends React.Component{
   constructor(props) {
@@ -51,12 +51,12 @@ class RecipesSlider extends React.Component{
     return (
         <div className={s.container_slider} style={{position: "relative"}}>
           <Slider ref={c => (this.slider = c)} {...settings}>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
-            <CardTypeThree title={"Цыпленок корнишона в духовке"}/>
+            <RecipeCard title={"Цыпленок корнишона в духовке"}/>
+            <RecipeCard title={"Цыпленок корнишона в духовке"}/>
+            <RecipeCard title={"Цыпленок корнишона в духовке"}/>
+            <RecipeCard title={"Цыпленок корнишона в духовке"}/>
+            <RecipeCard title={"Цыпленок корнишона в духовке"}/>
+            <RecipeCard title={"Цыпленок корнишона в духовке"}/>
           </Slider>
           <button className="button slider_btn prev" onClick={this.previous}>
           </button>

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import s from "./Basket.module.css";
 
 import notAvailable from "../../common/images/chicken.png";
+import BannerWarning from "../CommonComponents/BannerWarning";
 
 const BasketMethodsDelivery = (props) => {
   const [statusDelivery, setStatusDelivery] = useState(true);
@@ -67,15 +68,12 @@ const BasketMethodsDelivery = (props) => {
         </div>
         <div style={statusYourself ? {display: "block"} : {display: "none"}}
              className={s.basketMethods_block}>
-          <div className={s.notAvailable}>
-            <div className={s.notAvailable_image}>
-              <img src={notAvailable} alt="notAvailable" className={s.notAvailable_img}/>
-            </div>
-            <p className={s.notAvailable_text}>К сожалению, ни в одном из наших филиалов нет в наличии комплекта
-              продуктов по Вашему заказу. Поэтому предлагаем Вам оформить доставку.
-              Наш курьер заедет в несколько филиалов и соберёт Ваш заказ.</p>
-            <h2 className={s.notAvailable_title}>С уважением, 'АЛЕЛЬ АГРО'</h2>
-          </div>
+          <BannerWarning
+            title={"С уважением, 'АЛЕЛЬ АГРО'"}
+            text={"К сожалению, ни в одном из наших филиалов нет в наличии комплекта\n" +
+            "        продуктов по Вашему заказу. Поэтому предлагаем Вам оформить доставку.\n" +
+            "        Наш курьер заедет в несколько филиалов и соберёт Ваш заказ."}
+          />
         </div>
       </div>
   );
