@@ -57,9 +57,23 @@ const BasketMethodsDelivery = (props) => {
               </div>
               <button onClick={() => {
                 props.checkMethodDelivery(1);
-                if(props.errorsMethodsDelivery.every(el => el === "")){
+                if(props.errorsMethodsDelivery.every(el => el === "") && props.products.length > 0){
                   props.setStateBasketTabOne(false);
                   props.setStateBasketTabTwo(true);
+                } else {
+                  let firstError;
+                  for(let i = 0; i < props.errorsMethodsDelivery.length; i++){
+                    if(props.errorsMethodsDelivery[i]){
+                      firstError = props.errorsMethodsDelivery[i];
+                      break;
+                    }
+                  }
+                  if(firstError) {
+                    props.ToggleNotificationStatus(firstError, false, true, 2000);
+                  } else {
+                    props.ToggleNotificationStatus("Нет продуктов в корзине", false, true, 2000);
+                  }
+
                 }
               }}
                   className={s.adressForm_form_submit}>Далее</button>

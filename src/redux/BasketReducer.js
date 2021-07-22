@@ -1,3 +1,5 @@
+import {ToggleStatusTC} from "./NotificationReducer";
+
 const ADD_PRODUCTS = "BASKET/ADD_PRODUCTS";
 const DELETE_PRODUCTS = "BASKET/DELETE_PRODUCTS";
 const DELETE_ONE_PRODUCTS = "BASKET/DELETE_ONE_PRODUCTS";
@@ -44,6 +46,7 @@ const BasketReducer = (state = JSON.parse(localStorage.getItem("alel/basket")), 
       copyState.totalQuantity++;
       copyState.totalPrice += +action.price;
       localStorage.setItem("alel/basket", JSON.stringify(copyState));
+
       return copyState;
     case DELETE_ONE_PRODUCTS:
       copyState = {...state};

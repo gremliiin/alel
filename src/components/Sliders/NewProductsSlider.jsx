@@ -8,6 +8,7 @@ import ProductAddCart from "../CommonComponents/ProductAddCart";
 import {changeWeightAC, getProductsByCategoryTC, toggleLikeAC} from "../../redux/ProductsReducer";
 import {connect} from "react-redux";
 import {addProductsAC} from "../../redux/BasketReducer";
+import {ToggleNotificationStatusTC} from "../../redux/NotificationReducer";
 
 class NewProductsSlider extends React.Component {
   constructor(props) {
@@ -24,10 +25,15 @@ class NewProductsSlider extends React.Component {
     this.slider.slickPrev();
   }
 
+  componentDidMount() {
+    this.props.getProductsByCategoryTC(1);
+  }
+
   render() {
     const settings = {
       infinite: true,
       speed: 500,
+      slidesPerRow: 1,
       slidesToShow: 4,
       slidesToScroll: 1,
       arrows: false,
@@ -35,14 +41,12 @@ class NewProductsSlider extends React.Component {
         {
           breakpoint: 992,
           settings: {
-            slidesToShow: 3,
             slidesToScroll: 1,
           }
         },
         {
           breakpoint: 767,
           settings: {
-            slidesToShow: 2,
             slidesToScroll: 1,
           }
         },
@@ -60,7 +64,6 @@ class NewProductsSlider extends React.Component {
           <Slider ref={c => (this.slider = c)} {...settings}>
             {
               this.props.products.products.map((el, id) => {
-              console.log(1)
               return <ProductAddCart
                   maxWidth = {"255px"}
                   key={el.id}
@@ -72,6 +75,7 @@ class NewProductsSlider extends React.Component {
                   staticContent = {this.props.products.staticContent}
                   changeWeight = {this.props.changeWeightAC}
                   addProducts = {this.props.addProductsAC}
+                  ToggleNotificationStatus = {this.props.ToggleNotificationStatusTC}
               />
             })
             }
@@ -96,7 +100,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   toggleLikeAC,
   changeWeightAC,
-  addProductsAC
+  addProductsAC,
+  getProductsByCategoryTC,
+  ToggleNotificationStatusTC
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewProductsSlider);

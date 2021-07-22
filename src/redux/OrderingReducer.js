@@ -82,17 +82,17 @@ const OrderingReducer = (state = initialState, action) => {
     case CHECK_METHOD_DELIVERY:
       copyState = {...state};
       if(copyState.street.length < 2 || copyState.street.length > 30){
-        copyState.errorsMethodsDelivery[0] = "Ошибка: название улицы должно состоять из не менее 2-ух символов и не более 30-ти";
+        copyState.errorsMethodsDelivery[0] = "некорректное название улицы";
       } else {
         copyState.errorsMethodsDelivery[0] = "";
       }
       if(copyState.flat < 1 || copyState.flat > 9999 || copyState.flat.length < 1){
-        copyState.errorsMethodsDelivery[2] = "Ошибка: номер квартиры не должен быть ниже 1 и превышать 9999";
+        copyState.errorsMethodsDelivery[2] = "некорректный номер квартиры";
       } else {
         copyState.errorsMethodsDelivery[2] = "";
       }
       if (copyState.house < 1 || copyState.house > 9999 || copyState.house.length < 1){
-        copyState.errorsMethodsDelivery[1] = "Ошибка: номер дома не должен быть ниже 1 и превышать 9999";
+        copyState.errorsMethodsDelivery[1] = "некорректный номер дома";
       } else {
         copyState.errorsMethodsDelivery[1] = "";
       }

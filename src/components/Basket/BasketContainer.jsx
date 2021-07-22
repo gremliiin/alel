@@ -11,6 +11,7 @@ import {
   changeStreetAC, checkContactsInfoAC,
   checkMethodDeliveryAC, doCheckoutTC
 } from "../../redux/OrderingReducer";
+import {ToggleNotificationStatusTC} from "../../redux/NotificationReducer";
 
 class BasketContainer extends React.Component {
   render() {
@@ -34,6 +35,7 @@ class BasketContainer extends React.Component {
       checkContactsInfo={this.props.checkContactsInfoAC}
       changeMethodPayment = {this.props.changeMethodPaymentAC}
       doCheckout = {this.props.doCheckoutTC}
+      ToggleNotificationStatus = {this.props.ToggleNotificationStatusTC}
     />
   }
 }
@@ -61,7 +63,8 @@ const mapDispatchToProps = {
   changeDeliveryDateAC,
   checkContactsInfoAC,
   changeMethodPaymentAC,
-  doCheckoutTC
+  doCheckoutTC,
+  ToggleNotificationStatusTC
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BasketContainer);

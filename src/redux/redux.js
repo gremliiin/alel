@@ -6,6 +6,7 @@ import ProductsReducer from "./ProductsReducer";
 import ProductsFiltersReducer from "./ProductsFiltersReducer";
 import BasketReducer from "./BasketReducer";
 import OrderingReducer from "./OrderingReducer";
+import NotificationReducer from "./NotificationReducer";
 
 
 let reducers = combineReducers({
@@ -14,7 +15,8 @@ let reducers = combineReducers({
   products: ProductsReducer,
   productsFilter: ProductsFiltersReducer,
   basket: BasketReducer,
-  ordering: OrderingReducer
+  ordering: OrderingReducer,
+  notification: NotificationReducer,
 });
 
 let store = createStore(reducers,  applyMiddleware(thunk));

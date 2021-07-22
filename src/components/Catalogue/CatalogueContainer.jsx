@@ -13,6 +13,7 @@ import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {getCurrentCategoryTC} from "../../redux/CatalogueReducer";
 import {addProductsAC, setProductsAC} from "../../redux/BasketReducer";
+import {ToggleNotificationStatusTC} from "../../redux/NotificationReducer";
 
 class CatalogueContainer extends React.Component {
 
@@ -58,6 +59,7 @@ class CatalogueContainer extends React.Component {
               changeChoosePricesTo = {this.props.changeChoosePricesToAC}
               changeCalorieValueFrom = {this.props.changeCalorieValueFromAC}
               changeCalorieValueTo = {this.props.changeCalorieValueToAC}
+              ToggleNotificationStatus = {this.props.ToggleNotificationStatusTC}
 
           />
         </>
@@ -93,7 +95,8 @@ const mapDispatchToProps = {
    changeCalorieValueToAC,
    addProductsAC,
    getCurrentCategoryTC,
-   getProductsByCategoryTC
+   getProductsByCategoryTC,
+   ToggleNotificationStatusTC
 }
 
 export default compose(

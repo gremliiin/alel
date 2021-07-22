@@ -41,6 +41,8 @@ const Basket = (props) => {
                 checkContactsInfo = {props.checkContactsInfo}
                 changeMethodPayment = {props.changeMethodPayment}
                 doCheckout = {props.doCheckout}
+                ToggleNotificationStatus = {props.ToggleNotificationStatus}
+                products = {props.products}
               /> }
             </Col>
             <Col lg={4}>

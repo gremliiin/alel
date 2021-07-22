@@ -28,9 +28,6 @@ import {changeWeightAC, getProductsByCategoryTC, toggleLikeAC} from "../../redux
 
 class Main extends React.Component {
 
-  componentDidMount() {
-    this.props.getProductsByCategoryTC(1);
-  }
 
 
   render() {

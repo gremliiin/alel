@@ -9,11 +9,14 @@ import BasketContainer from "./components/Basket/BasketContainer";
 import Product from "./components/Product/Product";
 import Recipes from "./components/Recipes/Recipes";
 import Recipe from "./components/Recipes/Recipe";
+import NotificationModal from "./components/Modals/NotificationModal";
+import AboutCompany from "./components/AboutCompany/AboutCompany";
 
 
 function App() {
   return (
     <div className="app">
+      <NotificationModal />
       <HeaderContainer />
     <div className="main">
 
@@ -22,7 +25,7 @@ function App() {
       </Route>
 
       <Route path="/about">
-        О товаре
+        <AboutCompany />
       </Route>
 
       <Route path="/certificates">

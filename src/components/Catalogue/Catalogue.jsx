@@ -185,6 +185,7 @@ const Catalogue = (props) => {
                       staticContent={props.products.staticContent}
                       changeWeight={props.changeWeight}
                       addProducts = {props.addProducts}
+                      ToggleNotificationStatus = {props.ToggleNotificationStatus}
                   />
                 })}
               </div>

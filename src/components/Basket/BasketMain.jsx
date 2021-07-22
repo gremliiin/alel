@@ -63,6 +63,9 @@ const BasketMain = (props) => {
             changeFlat = {props.changeFlat}
             errorsMethodsDelivery = {props.ordering.errorsMethodsDelivery}
             checkMethodDelivery = {props.checkMethodDelivery}
+            ToggleStatus = {props.ToggleStatus}
+            ToggleNotificationStatus = {props.ToggleNotificationStatus}
+            products = {props.products}
           />
         </div>
       </div>
@@ -120,6 +123,15 @@ const BasketMain = (props) => {
                 if(props.ordering.errorsContactsInfo.every(el => el === "")){
                   setStateBasketTabTwo(false);
                   setStateBasketTabThree(true);
+                } else {
+                  let firstError;
+                  for(let i = 0; i < props.ordering.errorsContactsInfo.length; i++){
+                    if(props.ordering.errorsContactsInfo[i]){
+                      firstError = props.ordering.errorsContactsInfo[i];
+                      break;
+                    }
+                  }
+                  props.ToggleNotificationStatus(firstError, false, true, 2000);
                 }
 
               }}
